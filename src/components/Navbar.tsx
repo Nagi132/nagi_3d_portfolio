@@ -1,7 +1,8 @@
 import Link from 'next/link';
+import React from 'react';
 import { useRouter } from 'next/router';
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   const router = useRouter();
   const isActive = (path: string) => router.pathname === path;
 
