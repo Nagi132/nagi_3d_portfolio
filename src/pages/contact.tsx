@@ -1,5 +1,9 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, Suspense } from 'react'
 import emailjs from '@emailjs/browser';
+import { Canvas } from '@react-three/fiber';
+import Fox from '@/models/Fox';
+import Loader from '@/components/Loader';
+import Navbar from '@/components/Navbar';
 
 interface ContactProps {
     name: string;
@@ -16,16 +20,19 @@ const Contact: React.FC = () => {
     });
 
     const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [currentAnimation, setCurrentAnimation] = useState('idle');
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormState({ ...formState, [e.target.name]: e.target.value });
     };
-    const handleFocus = () => { };
-    const handleBlur = () => { };
+    const handleFocus = () => setCurrentAnimation('walk');
+    const handleBlur = () => setCurrentAnimation('idle');
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsLoading(true);
+        setCurrentAnimation('hit');
+
         if (formRef.current) {
             emailjs.sendForm(
                 process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
@@ -37,9 +44,13 @@ const Contact: React.FC = () => {
                 // TODO: Show success message
                 // TODO: Hide an alert
 
-                setFormState({ name: '', email: '', message: '' });
+                setTimeout(() => {
+                    setFormState({ name: '', email: '', message: '' });
+                    setCurrentAnimation('idle');
+                }, 3000);
             }).catch((error) => {
                 setIsLoading(false);
+                setCurrentAnimation('idle');
                 console.log(error);
                 // TODO: Show error message
             });
@@ -48,6 +59,7 @@ const Contact: React.FC = () => {
 
     return (
         <section className='relative flex lg:flex-row flex-col max-container'>
+            <Navbar />
             <div className='flex-1 min-w-[50%] flex flex-col'>
                 <h1 className='head-text'>Get in Touch</h1>
 
@@ -108,6 +120,29 @@ const Contact: React.FC = () => {
                         {isLoading ? ('Sending...') : ('Send Message')}
                     </button>
                 </form>
+            </div>
+
+            <div className='lg:w-1/2 w-full lg:h-auto md:h-[550px] h-[350px]'
+            >
+                <Canvas
+                    camera={{
+                        position: [0, 0, 5],
+                        fov: 75,
+                        near: 0.1,
+                        far: 1000
+                    }}
+                >
+                    <directionalLight intensity={2.5} position={[0, 0, 1]} />
+                    <ambientLight intensity={0.5} />
+                    <Suspense fallback={<Loader />}>
+                        <Fox
+                            currentAnimation={currentAnimation}
+                            position={[0.5, 0.35, 0]}
+                            rotation={[12.6, -0.6, 0]}
+                            scale={[0.5, 0.5, 0.5]}
+                        />
+                    </Suspense>
+                </Canvas>
             </div>
         </section>
     )

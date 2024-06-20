@@ -13,6 +13,7 @@
     "@react-spring/three": "^9.7.3",
     "@react-three/drei": "^9.107.0",
     "@react-three/fiber": "^8.16.8",
+    "@types/three": "^0.165.0",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
     "next": "14.2.4",
