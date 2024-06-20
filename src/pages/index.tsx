@@ -6,12 +6,9 @@ import Island from '@/models/Island';
 import Sky from '@/models/Sky';
 import Plane from '@/models/Plane';
 import Bird from '@/models/Bird';
+import HomeInfo from '@/components/HomeInfo';
 
 import * as THREE from 'three';
-
-{/* <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center'>
-                POPUP
-            </div> */}
 
 interface IslandProps {
     position?: [number, number, number];
@@ -52,10 +49,10 @@ const Home: React.FC<IslandProps> = () => {
             let screenPosition: [number, number, number];
 
             if (window.innerWidth < 768) {
-                screenScale = [0.015, 0.015, 0.015]; 
+                screenScale = [0.015, 0.015, 0.015];
                 screenPosition = [0, 0.5, -4];
             } else {
-                screenScale = [0.017, 0.017, 0.017]; 
+                screenScale = [0.017, 0.017, 0.017];
                 screenPosition = [0, 1, -5];
             }
             setPlaneScale(screenScale);
@@ -77,6 +74,10 @@ const Home: React.FC<IslandProps> = () => {
     return (
         <section className='w-full h-screen relative'>
             <Navbar />
+
+            <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center'>
+                {currentStage !== null && <HomeInfo currentStage={currentStage} text="text here" link="https://example.com" btnText="Learn More"/>}
+            </div>
             <Canvas
                 className={`w-full h-screen bg-transparent ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
                 camera={{ near: 0.1, far: 1000 }}
@@ -93,10 +94,10 @@ const Home: React.FC<IslandProps> = () => {
                         castShadow
                     />
                     <Sky
-                    position={[10, 70, 10]} 
-                    scale={[1, 1, 1]} 
-                    rotation={[0, -5, 0]} 
-                    isRotating={isRotating} />
+                        position={[10, 70, 10]}
+                        scale={[1, 1, 1]}
+                        rotation={[0, -5, 0]}
+                        isRotating={isRotating} />
                     <Bird />
                     <Island
                         position={islandPosition}
@@ -107,8 +108,8 @@ const Home: React.FC<IslandProps> = () => {
                         setCurrentStage={setCurrentStage}
                     />
                     <Plane
-                        planePosition={planePosition} 
-                        planeScale={planeScale} 
+                        planePosition={planePosition}
+                        planeScale={planeScale}
                         rotation={[0, 20.7, 0]}
                         isRotating={isRotating}
                     />
