@@ -6,7 +6,7 @@ Source: https://sketchfab.com/3d-models/fantasy-eco-city-d6929fd7b2f641b985c9afd
 Title: Fantasy eco city
 */
 
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useCallback } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
 import { animated } from '@react-spring/three';
@@ -16,13 +16,153 @@ interface IslandProps {
     position: [number, number, number];
     scale: [number, number, number];
     rotation: [number, number, number];
+    onClick?: () => void;
+    isRotating?: boolean;
+    setIsRotating?: React.Dispatch<React.SetStateAction<boolean>>;
+    setCurrentStage?: React.Dispatch<React.SetStateAction<number | null>>;
 }
 
-const Island: React.FC<IslandProps> = ({ position = [0, 0, 0], scale = [1, 1, 1], rotation = [0, 0, 0] }) => {
+const Island: React.FC<IslandProps> = ({
+    position = [0, 0, 0],
+    scale = [1, 1, 1],
+    rotation = [0, 0, 0],
+    isRotating,
+    setIsRotating,
+    setCurrentStage,
+    ...props
+}) => {
 
     const islandRef = useRef<THREE.Group>(null);
     const { nodes, materials, animations } = useGLTF('/assets/3d/island.glb') as any;
     const { actions } = useAnimations(animations, islandRef)
+    const { gl, viewport } = useThree();
+
+    const lastX = useRef(0);
+    const rotationSpeed = useRef(0);
+    const dampingFactor = 0.95;
+
+    const handlePointerDown = useCallback((e: PointerEvent) => {
+        e.stopPropagation();
+        e.preventDefault();
+        if (setIsRotating) {
+            setIsRotating(true);
+        }
+
+        const clientX = e.clientX;
+        lastX.current = clientX;
+    }, [setIsRotating]);
+
+    const handlePointerMove = useCallback((e: PointerEvent) => {
+        e.stopPropagation();
+        e.preventDefault();
+
+        if (isRotating) {
+            const clientX = e.clientX;
+            const delta = (clientX - lastX.current) / viewport.width;
+
+            if (islandRef.current) {
+                islandRef.current.rotation.y += delta * 0.01 * Math.PI;
+            }
+            lastX.current = clientX;
+            rotationSpeed.current = delta * 0.01 * Math.PI;
+        }
+    }, [isRotating, viewport.width]);
+
+    const handlePointerUp = useCallback((e: PointerEvent) => {
+        e.stopPropagation();
+        e.preventDefault();
+        if (setIsRotating) {
+            setIsRotating(false);
+        }
+        const clientX = e.clientX;
+        const delta = (clientX - lastX.current) / viewport.width;
+
+        if (islandRef.current) {
+            islandRef.current.rotation.y += delta * 0.01 * Math.PI;
+        }
+        lastX.current = clientX;
+        rotationSpeed.current = delta * 0.01 * Math.PI;
+    }, [setIsRotating, viewport.width]);
+
+    const handleKeyDown = useCallback((e: KeyboardEvent) => {
+        if (islandRef.current) {
+            if (e.key === 'ArrowLeft') {
+                if (!isRotating && setIsRotating) {
+                    setIsRotating(true);
+                }
+                islandRef.current.rotation.y += 0.01 * Math.PI;
+            } else if (e.key === 'ArrowRight') {
+                if (!isRotating && setIsRotating) {
+                    setIsRotating(true);
+                }
+                islandRef.current.rotation.y -= 0.01 * Math.PI;
+            }
+        }
+    }, [isRotating, setIsRotating]);
+
+    const handleKeyUp = useCallback((e: KeyboardEvent) => {
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+            if (setIsRotating) {
+                setIsRotating(false);
+            }
+        }
+    }, [setIsRotating]);
+
+    useFrame(() => {
+        if (islandRef.current) {
+            if (!isRotating) {
+                rotationSpeed.current *= dampingFactor;
+
+                if (Math.abs(rotationSpeed.current) < 0.001) {
+                    rotationSpeed.current = 0;
+                } else {
+                    islandRef.current.rotation.y += rotationSpeed.current;
+                }
+            }
+
+            const rotation = islandRef.current.rotation.y;
+            const normalizedRotation =
+                ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
+
+            // Set the current stage based on the island's orientation
+            if (setCurrentStage) {
+                switch (true) {
+                    case normalizedRotation >= 5.45 && normalizedRotation <= 5.85:
+                        setCurrentStage(4);
+                        break;
+                    case normalizedRotation >= 0.85 && normalizedRotation <= 1.3:
+                        setCurrentStage(3);
+                        break;
+                    case normalizedRotation >= 2.4 && normalizedRotation <= 2.6:
+                        setCurrentStage(2);
+                        break;
+                    case normalizedRotation >= 4.25 && normalizedRotation <= 4.75:
+                        setCurrentStage(1);
+                        break;
+                    default:
+                        setCurrentStage(null);
+                }
+            }
+        }
+    });
+
+    useEffect(() => {
+        const canvas = gl.domElement;
+        canvas.addEventListener('pointerdown', handlePointerDown);
+        canvas.addEventListener('pointerup', handlePointerUp);
+        canvas.addEventListener('pointermove', handlePointerMove);
+        document.addEventListener('keydown', handleKeyDown);
+        document.addEventListener('keyup', handleKeyUp);
+
+        return () => {
+            canvas.removeEventListener('pointerdown', handlePointerDown);
+            canvas.removeEventListener('pointerup', handlePointerUp);
+            canvas.removeEventListener('pointermove', handlePointerMove);
+            document.removeEventListener('keydown', handleKeyDown);
+            document.removeEventListener('keyup', handleKeyUp);
+        }
+    }, [gl, handlePointerDown, handlePointerMove, handlePointerUp])
+
     return (
         <animated.group
             ref={islandRef}
