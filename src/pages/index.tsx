@@ -50,10 +50,10 @@ const Home: React.FC<IslandProps> = () => {
 
             if (window.innerWidth < 768) {
                 screenScale = [0.015, 0.015, 0.015];
-                screenPosition = [0, 0.5, -4];
+                screenPosition = [0, 0.5, -3];
             } else {
                 screenScale = [0.017, 0.017, 0.017];
-                screenPosition = [0, 1, -5];
+                screenPosition = [0, -3, -2];
             }
             setDragonScale(screenScale);
             setDragonPosition(screenPosition);
