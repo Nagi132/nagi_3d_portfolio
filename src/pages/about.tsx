@@ -13,7 +13,7 @@ const About: React.FC = () => {
 
         <div className='mt-5 flex flex-col gap-3 text-slate-500'>
           <p>
-            Software Engineer based in Tokyo, Japan. I have a passion for building web applications and solving problems. I am currently working as a Frontend Engineer at <a href='https://www.zeals.co.jp/' target='_blank' rel='noreferrer'>Zeals</a>.
+            Software Engineer based in Tokyo, Japan. I have a passion for building web applications and solving problems.
           </p>
         </div>
 
