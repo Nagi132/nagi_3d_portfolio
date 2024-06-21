@@ -1,6 +1,5 @@
 import React from 'react'
 import Link from 'next/link';
-import arrow from 'public/assets/icons/arrow.svg';
 
 interface HomeInfoProps {
     currentStage?: number;
