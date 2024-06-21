@@ -4,7 +4,7 @@ import Navbar from '@/components/Navbar';
 import Loader from '@/components/Loader';
 import Island from '@/models/Island';
 import Sky from '@/models/Sky';
-import Plane from '@/models/Plane';
+import Dragon from '@/models/Dragon';
 import Bird from '@/models/Bird';
 import HomeInfo from '@/components/HomeInfo';
 
@@ -16,8 +16,8 @@ interface IslandProps {
     rotation?: [number, number, number];
     isRotating?: boolean;
     setIsRotating?: React.Dispatch<React.SetStateAction<boolean>>;
-    planeScale?: [number, number, number];
-    planePosition?: [number, number, number];
+    dragonScale?: [number, number, number];
+    dragonPosition?: [number, number, number];
     currentStage?: number;
     setCurrentStage?: React.Dispatch<React.SetStateAction<number | null>>;
 }
@@ -29,8 +29,8 @@ const Home: React.FC<IslandProps> = () => {
     const [isRotating, setIsRotating] = useState<boolean>(false);
     const [currentStage, setCurrentStage] = useState<number | null>(0);
 
-    const [planeScale, setPlaneScale] = useState<[number, number, number]>([0.1, 0.1, 0.1]); // Adjust the scale here
-    const [planePosition, setPlanePosition] = useState<[number, number, number]>([0, 0, 0]);
+    const [dragonScale, setDragonScale] = useState<[number, number, number]>([0.1, 0.1, 0.1]); // Adjust the scale here
+    const [dragonPosition, setDragonPosition] = useState<[number, number, number]>([0, 0, 0]);
 
     useEffect(() => {
         const adjustIslandForScreenSize = () => {
@@ -44,7 +44,7 @@ const Home: React.FC<IslandProps> = () => {
             setIslandScale(screenScale);
         };
 
-        const adjustPlaneForScreenSize = () => {
+        const adjustDragonForScreenSize = () => {
             let screenScale: [number, number, number];
             let screenPosition: [number, number, number];
 
@@ -55,19 +55,19 @@ const Home: React.FC<IslandProps> = () => {
                 screenScale = [0.017, 0.017, 0.017];
                 screenPosition = [0, 1, -5];
             }
-            setPlaneScale(screenScale);
-            setPlanePosition(screenPosition);
+            setDragonScale(screenScale);
+            setDragonPosition(screenPosition);
         };
 
         adjustIslandForScreenSize();
-        adjustPlaneForScreenSize();
+        adjustDragonForScreenSize();
 
         window.addEventListener('resize', adjustIslandForScreenSize);
-        window.addEventListener('resize', adjustPlaneForScreenSize);
+        window.addEventListener('resize', adjustDragonForScreenSize);
 
         return () => {
             window.removeEventListener('resize', adjustIslandForScreenSize);
-            window.removeEventListener('resize', adjustPlaneForScreenSize);
+            window.removeEventListener('resize', adjustDragonForScreenSize);
         }
     }, []);
 
@@ -107,9 +107,9 @@ const Home: React.FC<IslandProps> = () => {
                         setIsRotating={setIsRotating}
                         setCurrentStage={setCurrentStage}
                     />
-                    <Plane
-                        planePosition={planePosition}
-                        planeScale={planeScale}
+                    <Dragon
+                        dragonPosition={dragonPosition}
+                        dragonScale={dragonScale}
                         rotation={[0, 20.7, 0]}
                         isRotating={isRotating}
                     />
