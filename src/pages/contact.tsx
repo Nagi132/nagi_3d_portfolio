@@ -62,100 +62,102 @@ const Contact: React.FC = () => {
     };
 
     return (
-        <section className='relative flex lg:flex-row flex-col max-container'>
-            <Navbar />
-            {alert.show && <Alert {...alert} />}
-            {/* <Alert type='danger' text='test' /> */}
-            <div className='flex-1 min-w-[50%] flex flex-col'>
-                <h1 className='head-text'>Get in Touch</h1>
+        <main className="bg-slate-300/20 h-[100vh]">
+            <section className='relative flex lg:flex-row flex-col max-container'>
+                <Navbar />
+                {alert.show && <Alert {...alert} />}
+                {/* <Alert type='danger' text='test' /> */}
+                <div className='flex-1 min-w-[50%] flex flex-col'>
+                    <h1 className='head-text'>Get in Touch</h1>
 
-                <form
-                    ref={formRef}
-                    className='w-full flex flex-col gap-7 mt-14'
-                    onSubmit={handleSubmit}
-                >
-                    <label className='text-black-500 font-semibold'>
-                        Name
-                        <input
-                            type='text'
-                            name='name'
-                            className='input'
-                            placeholder='Your Name'
-                            required
-                            value={formState.name}
-                            onChange={handleChange}
-                            onFocus={handleFocus}
-                            onBlur={handleBlur}
-                        />
-                    </label>
-                    <label className='text-black-500 font-semibold'>
-                        Email
-                        <input
-                            type='email'
-                            name='email'
-                            className='input'
-                            placeholder='example@email.com'
-                            required
-                            value={formState.email}
-                            onChange={handleChange}
-                            onFocus={handleFocus}
-                            onBlur={handleBlur}
-                        />
-                    </label>
-                    <label className='text-black-500 font-semibold'>
-                        Message
-                        <textarea
-                            name='message'
-                            rows={4}
-                            className='textarea'
-                            placeholder='Create a message here'
-                            required
-                            value={formState.message}
-                            onChange={handleChange}
-                            onFocus={handleFocus}
-                            onBlur={handleBlur}
-                        />
-                    </label>
-                    <button
-                        type="submit"
-                        className={`btn relative overflow-hidden text-white font-semibold py-2 px-6 rounded-lg transition-all duration-300 ${isLoading ? 'cursor-not-allowed opacity-50' : 'hover:scale-105 hover:shadow-lg'
-                            }`}
-                        disabled={isLoading}
-                        onFocus={handleFocus}
-                        onBlur={handleBlur}
+                    <form
+                        ref={formRef}
+                        className='w-full flex flex-col gap-7 mt-14'
+                        onSubmit={handleSubmit}
                     >
-                        <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 opacity-80 transition-opacity duration-300 group-hover:opacity-100"></div>
-                        <div className="relative flex items-center justify-center space-x-2">
-                            <span>{isLoading ? 'Sending...' : 'Send Message'}</span>
-                            {!isLoading && <FaPaperPlane className="ml-2" />}
-                        </div>
-                    </button>
-                </form>
-            </div>
+                        <label className='text-black-500 font-semibold'>
+                            Name
+                            <input
+                                type='text'
+                                name='name'
+                                className='input'
+                                placeholder='Your Name'
+                                required
+                                value={formState.name}
+                                onChange={handleChange}
+                                onFocus={handleFocus}
+                                onBlur={handleBlur}
+                            />
+                        </label>
+                        <label className='text-black-500 font-semibold'>
+                            Email
+                            <input
+                                type='email'
+                                name='email'
+                                className='input'
+                                placeholder='example@email.com'
+                                required
+                                value={formState.email}
+                                onChange={handleChange}
+                                onFocus={handleFocus}
+                                onBlur={handleBlur}
+                            />
+                        </label>
+                        <label className='text-black-500 font-semibold'>
+                            Message
+                            <textarea
+                                name='message'
+                                rows={4}
+                                className='textarea'
+                                placeholder='Create a message here'
+                                required
+                                value={formState.message}
+                                onChange={handleChange}
+                                onFocus={handleFocus}
+                                onBlur={handleBlur}
+                            />
+                        </label>
+                        <button
+                            type="submit"
+                            className={`btn relative overflow-hidden text-white font-semibold py-2 px-6 rounded-lg transition-all duration-300 ${isLoading ? 'cursor-not-allowed opacity-50' : 'hover:scale-105 hover:shadow-lg'
+                                }`}
+                            disabled={isLoading}
+                            onFocus={handleFocus}
+                            onBlur={handleBlur}
+                        >
+                            <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 opacity-80 transition-opacity duration-300 group-hover:opacity-100"></div>
+                            <div className="relative flex items-center justify-center space-x-2">
+                                <span>{isLoading ? 'Sending...' : 'Send Message'}</span>
+                                {!isLoading && <FaPaperPlane className="ml-2" />}
+                            </div>
+                        </button>
+                    </form>
+                </div>
 
-            <div className='lg:w-1/2 w-full lg:h-auto md:h-[550px] h-[350px]'
-            >
-                <Canvas
-                    camera={{
-                        position: [0, 0, 5],
-                        fov: 75,
-                        near: 0.1,
-                        far: 1000
-                    }}
+                <div className='lg:w-1/2 w-full lg:h-auto md:h-[550px] h-[350px]'
                 >
-                    <directionalLight intensity={2.5} position={[0, 0, 1]} />
-                    <ambientLight intensity={0.5} />
-                    <Suspense fallback={<Loader />}>
-                        <Fox
-                            currentAnimation={currentAnimation}
-                            position={[0.5, 0.35, 0]}
-                            rotation={[12.6, -0.6, 0]}
-                            scale={[0.5, 0.5, 0.5]}
-                        />
-                    </Suspense>
-                </Canvas>
-            </div>
-        </section>
+                    <Canvas
+                        camera={{
+                            position: [0, 0, 5],
+                            fov: 75,
+                            near: 0.1,
+                            far: 1000
+                        }}
+                    >
+                        <directionalLight intensity={2.5} position={[0, 0, 1]} />
+                        <ambientLight intensity={0.5} />
+                        <Suspense fallback={<Loader />}>
+                            <Fox
+                                currentAnimation={currentAnimation}
+                                position={[0.5, 0.35, 0]}
+                                rotation={[12.6, -0.6, 0]}
+                                scale={[0.5, 0.5, 0.5]}
+                            />
+                        </Suspense>
+                    </Canvas>
+                </div>
+            </section>
+        </main>
     )
 }
 

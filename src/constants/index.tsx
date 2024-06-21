@@ -2,7 +2,6 @@ import { meta, shopify, starbucks, tesla } from "@/assets/images";
 import {
     car,
     contact,
-
     estate,
     express,
     git,
@@ -50,6 +49,15 @@ interface Project {
 interface Service {
     theme: string;
     name: string;
+}
+
+interface Experience {
+    title: string;
+    company_name: string;
+    icon: string;
+    iconBg: string;
+    date: string;
+    points: string[];
 }
 
 export const skills: Skill[] = [
@@ -250,3 +258,45 @@ export const service: Service[] = [
 
     },
 ]
+
+export const experiences: Experience[] = [
+    {
+        title: 'Software Engineer',
+        company_name: 'Tesla',
+        icon: 'assets/images/tesla.png',
+        iconBg: '#ffcccb',
+        date: 'June 2021 - Present',
+        points: [
+            "Developing and maintaing web applications using React.js and other related technologies.",
+            "Collaborating with the design team to create a seamless user experience.",
+            "Implementing security and data protection.",
+            "Participating in the entire application lifecycle, focusing on coding and debugging."
+        ],
+    },
+    {
+        title: 'Software Engineer',
+        company_name: 'Shopify',
+        icon: 'assets/images/shopify.png',
+        iconBg: '#accbe1',
+        date: 'June 2020 - June 2021',
+        points: [
+            "Developing and maintaing web applications using React.js and other related technologies.",
+            "Collaborating with the design team to create a seamless user experience.",
+            "Implementing security and data protection.",
+            "Participating in the entire application lifecycle, focusing on coding and debugging."
+        ],
+    },
+    {
+        title: 'Software Engineer',
+        company_name: 'Starbucks',
+        icon: 'assets/images/starbucks.png',
+        iconBg: '#90ee90',
+        date: 'June 2019 - June 2020',
+        points: [
+            "Developing and maintaing web applications using React.js and other related technologies.",
+            "Collaborating with the design team to create a seamless user experience.",
+            "Implementing security and data protection.",
+            "Participating in the entire application lifecycle, focusing on coding and debugging."
+        ],
+    }
+];
