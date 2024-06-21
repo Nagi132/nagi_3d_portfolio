@@ -4,6 +4,10 @@ import { Canvas } from '@react-three/fiber';
 import Fox from '@/models/Fox';
 import Loader from '@/components/Loader';
 import Navbar from '@/components/Navbar';
+import useAlert from '@/hooks/useAlert';
+import Alert from '@/components/Alert';
+import { FaPaperPlane } from 'react-icons/fa';
+
 
 interface ContactProps {
     name: string;
@@ -21,6 +25,7 @@ const Contact: React.FC = () => {
 
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [currentAnimation, setCurrentAnimation] = useState('idle');
+    const { alert, showAlert, hideAlert } = useAlert();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormState({ ...formState, [e.target.name]: e.target.value });
@@ -41,8 +46,7 @@ const Contact: React.FC = () => {
                 process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
             ).then(() => {
                 setIsLoading(false);
-                // TODO: Show success message
-                // TODO: Hide an alert
+                showAlert({ text: 'Message sent successfully!', type: 'success' });
 
                 setTimeout(() => {
                     setFormState({ name: '', email: '', message: '' });
@@ -52,7 +56,7 @@ const Contact: React.FC = () => {
                 setIsLoading(false);
                 setCurrentAnimation('idle');
                 console.log(error);
-                // TODO: Show error message
+                showAlert({ text: 'An error occurred, please try again later.', type: 'danger' });
             });
         }
     };
@@ -60,6 +64,8 @@ const Contact: React.FC = () => {
     return (
         <section className='relative flex lg:flex-row flex-col max-container'>
             <Navbar />
+            {alert.show && <Alert {...alert} />}
+            {/* <Alert type='danger' text='test' /> */}
             <div className='flex-1 min-w-[50%] flex flex-col'>
                 <h1 className='head-text'>Get in Touch</h1>
 
@@ -112,12 +118,17 @@ const Contact: React.FC = () => {
                     </label>
                     <button
                         type="submit"
-                        className='btn'
+                        className={`btn relative overflow-hidden text-white font-semibold py-2 px-6 rounded-lg transition-all duration-300 ${isLoading ? 'cursor-not-allowed opacity-50' : 'hover:scale-105 hover:shadow-lg'
+                            }`}
                         disabled={isLoading}
                         onFocus={handleFocus}
                         onBlur={handleBlur}
                     >
-                        {isLoading ? ('Sending...') : ('Send Message')}
+                        <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 opacity-80 transition-opacity duration-300 group-hover:opacity-100"></div>
+                        <div className="relative flex items-center justify-center space-x-2">
+                            <span>{isLoading ? 'Sending...' : 'Send Message'}</span>
+                            {!isLoading && <FaPaperPlane className="ml-2" />}
+                        </div>
                     </button>
                 </form>
             </div>
