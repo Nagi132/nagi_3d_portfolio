@@ -18,9 +18,11 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
-    }
+      "@/*": ["./src/*", "./public/*"]
+    },
+    "typeRoots": ["./node_modules/@types", "./typings.d.ts"]
+
   },
-  "include": ["next-env.d.ts", "**/*.ts","**/*.tsx", "**/*.css","**/*.glb","**/*.svg",".next/types/**/*.ts", ".next/types/**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts","**/*.tsx", "**/*.css","**/*.glb","**/*.svg",".next/types/**/*.ts", ".next/types/**/*.tsx", "public/assets/icons/index.js","typings.d.ts"],
   "exclude": ["node_modules"]
 }
