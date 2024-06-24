@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'next/link';
+import InfoBox from './InfoBox';
 
 interface HomeInfoProps {
     currentStage?: number;
@@ -8,32 +8,24 @@ interface HomeInfoProps {
     btnText?: string;
 }
 
-const InfoBox: React.FC<HomeInfoProps> = ({ text = "", link = "#", btnText = "Learn More" }) => (
-    <div className='info-box p-4 bg-white rounded-lg shadow-md text-center'>
-        <p className='font-medium sm:text-xl text-center'>{text}</p>
-        <Link href={link} className='neo-brutalism-white neo-btn'>
-            {btnText}
-            <img src='/assets/icons/arrow.svg' className='w-4 h-4 object-contain' />
-        </Link>
-    </div>
-);
-
 const renderContent = (currentStage: number | null) => {
     switch (currentStage) {
         case 1:
             return (
-                <h1 className="sm:text-xl sm:leading-snug text-center neo-brutalism-blue py-4 px-8 text-white mx-5">
-                    Hi, I'm <span className='font-semibold'>Nagi</span>👋
+                <h1 className="sm:text-xl sm:leading-snug text-center bg-whiteOpacity60 py-4 px-8 mx-5 font-medium rounded-3xl shadow-3xl border-4 border-white border-opacity-80">
+                    Hi, I'm <span className='font-semibold'>Nagi</span>!👋
                     <br />
-                    Loves creating software, and video games.
+                    I love playing games and learning new technologies.
                     <br />
-                    Based in the USA, currently exploring new technologies and cool stuff.
+                    Born in New York and grew up in Tokyo.
+                    <br />
+                    My area of interests includes software, web developments and video games.
                 </h1>
             );
         case 2:
             return (
                 <InfoBox
-                    text="Learn more section here"
+                    text="Explore my journey and discover my background."
                     link="/about"
                     btnText="Learn More"
                 />
@@ -41,7 +33,7 @@ const renderContent = (currentStage: number | null) => {
         case 3:
             return (
                 <InfoBox
-                    text="Check out some of my projects!"
+                    text="Visit my projects and take a look at what I have done."
                     link="/projects"
                     btnText="Explore Projects"
                 />
@@ -49,7 +41,7 @@ const renderContent = (currentStage: number | null) => {
         case 4:
             return (
                 <InfoBox
-                    text="Get in touch text here"
+                    text="I'd love to hear from you! Reach out and let's connect."
                     link="/contact"
                     btnText="Get in Touch"
                 />
