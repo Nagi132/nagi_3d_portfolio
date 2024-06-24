@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState, useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
 import Navbar from '@/components/Navbar';
 import Loader from '@/components/Loader';
@@ -7,7 +7,8 @@ import Sky from '@/models/Sky';
 import Dragon from '@/models/Dragon';
 import Bird from '@/models/Bird';
 import HomeInfo from '@/components/HomeInfo';
-
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import { BsFillVolumeUpFill, BsFillVolumeMuteFill } from 'react-icons/bs';
 import * as THREE from 'three';
 
 interface IslandProps {
@@ -23,14 +24,32 @@ interface IslandProps {
 }
 
 const Home: React.FC<IslandProps> = () => {
+    const audioRef = useRef<HTMLAudioElement | null>(null);
+
+    const [isPlayingMusic, setIsPlayingMusic] = useState<boolean>(false);
     const [islandScale, setIslandScale] = useState<[number, number, number]>([1, 1, 1]);
     const [islandPosition, setIslandPosition] = useState<[number, number, number]>([0, -6.5, -43]);
     const [islandRotation] = useState<[number, number, number]>([0.1, 4.7, 0]);
     const [isRotating, setIsRotating] = useState<boolean>(false);
     const [currentStage, setCurrentStage] = useState<number | null>(0);
 
-    const [dragonScale, setDragonScale] = useState<[number, number, number]>([0.1, 0.1, 0.1]); // Adjust the scale here
+    const [dragonScale, setDragonScale] = useState<[number, number, number]>([0.1, 0.1, 0.1]);
     const [dragonPosition, setDragonPosition] = useState<[number, number, number]>([0, 0, 0]);
+
+    useEffect(() => {
+        audioRef.current = new Audio('/assets/sakura.mp3')
+        audioRef.current.volume = 0.4;
+        audioRef.current.loop = true;
+    }, []);
+
+    useEffect(() => {
+        if (isPlayingMusic) {
+            audioRef.current?.play();
+        }
+        return () => {
+            audioRef.current?.pause();
+        }
+    }, [isPlayingMusic]);
 
     useEffect(() => {
         const adjustIslandForScreenSize = () => {
@@ -76,7 +95,7 @@ const Home: React.FC<IslandProps> = () => {
             <Navbar />
 
             <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center'>
-                {currentStage !== null && <HomeInfo currentStage={currentStage} text="text here" link="https://example.com" btnText="Learn More"/>}
+                {currentStage !== null && <HomeInfo currentStage={currentStage} text="text here" link="https://example.com" btnText="Learn More" />}
             </div>
             <Canvas
                 className={`w-full h-screen bg-transparent ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
@@ -115,6 +134,19 @@ const Home: React.FC<IslandProps> = () => {
                     />
                 </Suspense>
             </Canvas>
+
+            <div className='absolute bottom-2 left-2 flex flex-col items-center gap-4'>
+                <a href="https://www.linkedin.com/in/nagi1/" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-blue-700 transition-colors duration-300">
+                    <FaLinkedin size={30} />
+                </a>
+                <a href="https://github.com/Nagi132" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-gray-900 transition-colors duration-300">
+                    <FaGithub size={30} />
+                </a>
+                <button onClick={() => setIsPlayingMusic(!isPlayingMusic)} className="text-gray-700 hover:text-gray-900 transition-colors duration-300">
+                    {isPlayingMusic ? <BsFillVolumeUpFill size={30} /> : <BsFillVolumeMuteFill size={30} />}
+                </button>
+            </div>
+
         </section>
     );
 };
