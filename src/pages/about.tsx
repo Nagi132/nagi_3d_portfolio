@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
@@ -7,6 +8,11 @@ import CTA from '@/components/CTA';
 
 const About: React.FC = () => {
   return (
+    <>
+    <Head>
+        <title>Nagi's Portfolio - About</title>
+        <meta name="description" content="Welcome to Nagi Williams' personal portfolio showcasing my projects and skills." />
+    </Head>
     <main className="bg-slate-300/20 h-full">
       <Navbar />
       <section className="max-container">
@@ -100,6 +106,7 @@ const About: React.FC = () => {
         <CTA />
       </section>
     </main>
+    </>
   );
 }
 

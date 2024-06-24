@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React, { Suspense, useEffect, useState, useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
 import Navbar from '@/components/Navbar';
@@ -10,7 +11,6 @@ import HomeInfo from '@/components/HomeInfo';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { BsFillVolumeUpFill, BsFillVolumeMuteFill } from 'react-icons/bs';
 import * as THREE from 'three';
-
 interface IslandProps {
     position?: [number, number, number];
     scale?: [number, number, number];
@@ -91,63 +91,69 @@ const Home: React.FC<IslandProps> = () => {
     }, []);
 
     return (
-        <section className='w-full h-screen relative'>
-            <Navbar />
+        <>
+            <Head>
+                <title>Nagi's Portfolio - Home</title>
+                <meta name="description" content="Welcome to Nagi Williams' personal portfolio showcasing my projects and skills." />
+            </Head>
+            <section className='w-full h-screen relative'>
+                <Navbar />
 
-            <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center'>
-                {currentStage !== null && <HomeInfo currentStage={currentStage} text="text here" link="https://example.com" btnText="Learn More" />}
-            </div>
-            <Canvas
-                className={`w-full h-screen bg-transparent ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
-                camera={{ near: 0.1, far: 1000 }}
-            >
-                <Suspense fallback={<Loader />}>
-                    <directionalLight position={[1, 1, 1]} intensity={2} />
-                    <ambientLight intensity={0.5} />
-                    <hemisphereLight color={new THREE.Color('#b1e1ff')} groundColor={new THREE.Color('#000000')} intensity={1} />
-                    <spotLight
-                        position={[5, 5, 5]}
-                        intensity={200}
-                        angle={15}
-                        penumbra={1}
-                        castShadow
-                    />
-                    <Sky
-                        position={[10, 70, 10]}
-                        scale={[1, 1, 1]}
-                        rotation={[0, -5, 0]}
-                        isRotating={isRotating} />
-                    <Bird />
-                    <Island
-                        position={islandPosition}
-                        scale={islandScale}
-                        rotation={islandRotation}
-                        isRotating={isRotating}
-                        setIsRotating={setIsRotating}
-                        setCurrentStage={setCurrentStage}
-                    />
-                    <Dragon
-                        dragonPosition={dragonPosition}
-                        dragonScale={dragonScale}
-                        rotation={[0, 20.7, 0]}
-                        isRotating={isRotating}
-                    />
-                </Suspense>
-            </Canvas>
+                <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center'>
+                    {currentStage !== null && <HomeInfo currentStage={currentStage} text="text here" link="https://example.com" btnText="Learn More" />}
+                </div>
+                <Canvas
+                    className={`w-full h-screen bg-transparent ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
+                    camera={{ near: 0.1, far: 1000 }}
+                >
+                    <Suspense fallback={<Loader />}>
+                        <directionalLight position={[1, 1, 1]} intensity={2} />
+                        <ambientLight intensity={0.5} />
+                        <hemisphereLight color={new THREE.Color('#b1e1ff')} groundColor={new THREE.Color('#000000')} intensity={1} />
+                        <spotLight
+                            position={[5, 5, 5]}
+                            intensity={200}
+                            angle={15}
+                            penumbra={1}
+                            castShadow
+                        />
+                        <Sky
+                            position={[10, 70, 10]}
+                            scale={[1, 1, 1]}
+                            rotation={[0, -5, 0]}
+                            isRotating={isRotating} />
+                        <Bird />
+                        <Island
+                            position={islandPosition}
+                            scale={islandScale}
+                            rotation={islandRotation}
+                            isRotating={isRotating}
+                            setIsRotating={setIsRotating}
+                            setCurrentStage={setCurrentStage}
+                        />
+                        <Dragon
+                            dragonPosition={dragonPosition}
+                            dragonScale={dragonScale}
+                            rotation={[0, 20.7, 0]}
+                            isRotating={isRotating}
+                        />
+                    </Suspense>
+                </Canvas>
 
-            <div className='absolute bottom-2 left-2 flex flex-col items-center gap-4'>
-                <a href="https://www.linkedin.com/in/nagi1/" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-blue-700 transition-colors duration-300">
-                    <FaLinkedin size={30} />
-                </a>
-                <a href="https://github.com/Nagi132" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-gray-900 transition-colors duration-300">
-                    <FaGithub size={30} />
-                </a>
-                <button onClick={() => setIsPlayingMusic(!isPlayingMusic)} className="text-gray-700 hover:text-gray-900 transition-colors duration-300">
-                    {isPlayingMusic ? <BsFillVolumeUpFill size={30} /> : <BsFillVolumeMuteFill size={30} />}
-                </button>
-            </div>
+                <div className='absolute bottom-2 left-2 flex flex-col items-center gap-4'>
+                    <a href="https://www.linkedin.com/in/nagi1/" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-blue-700 transition-colors duration-300">
+                        <FaLinkedin size={30} />
+                    </a>
+                    <a href="https://github.com/Nagi132" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-gray-900 transition-colors duration-300">
+                        <FaGithub size={30} />
+                    </a>
+                    <button onClick={() => setIsPlayingMusic(!isPlayingMusic)} className="text-gray-700 hover:text-gray-900 transition-colors duration-300">
+                        {isPlayingMusic ? <BsFillVolumeUpFill size={30} /> : <BsFillVolumeMuteFill size={30} />}
+                    </button>
+                </div>
 
-        </section>
+            </section>
+        </>
     );
 };
 
