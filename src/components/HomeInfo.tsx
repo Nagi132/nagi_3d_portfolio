@@ -12,7 +12,7 @@ const renderContent = (currentStage: number | null) => {
     switch (currentStage) {
         case 1:
             return (
-                <h1 className="sm:text-xl sm:leading-snug text-center bg-whiteOpacity60 py-4 px-8 mx-5 font-medium rounded-2xl shadow-3xl border-4 border-white border-opacity-80">
+                <h1 className="sm:text-xl sm:leading-snug text-center bg-whiteOpacity60 py-4 px-8 mx-5 font-medium rounded-2xl shadow-3xl border-4 border-white border-opacity-80 drop-shadow-lg transform transition duration-500 hover:scale-105 text-black">
                     Hi, I'm <span className='font-semibold'>Nagi</span>!👋
                     <br />
                     I love playing games and learning new technologies.
