@@ -14,7 +14,7 @@ export const Bird: React.FC = () => {
 
     useFrame(({ clock, camera }) => {
         // Bird moving in a sin wave at a higher position
-        const baseY = 5; 
+        const baseY = 4; 
         birdRef.current.position.y = Math.sin(clock.elapsedTime) * 0.2 + baseY;
 
         if (birdRef.current.position.x > camera.position.x + 10) {
