@@ -62,8 +62,8 @@ const Contact: React.FC = () => {
     };
 
     return (
-        <main className="bg-slate-300/20 h-[100vh]">
-            <section className='relative flex lg:flex-row flex-col max-container'>
+        <main className="bg-slate-300/20 h-full">
+            <section className='relative flex lg:flex-row flex-col max-container h-[100vh]'>
                 <Navbar />
                 {alert.show && <Alert {...alert} />}
                 {/* <Alert type='danger' text='test' /> */}
