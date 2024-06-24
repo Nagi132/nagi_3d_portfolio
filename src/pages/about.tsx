@@ -7,7 +7,7 @@ import CTA from '@/components/CTA';
 
 const About: React.FC = () => {
   return (
-    <main className="bg-slate-300/20">
+    <main className="bg-slate-300/20 h-full">
       <Navbar />
       <section className="max-container">
         <h1 className='head-text'>
@@ -16,7 +16,10 @@ const About: React.FC = () => {
 
         <div className='mt-5 flex flex-col gap-3 text-slate-500'>
           <p>
-            Software Engineer based in New York. I have a passion for building web applications and solving problems.
+            I am a passionate software engineer and full-stack developer with a love for creating innovative web applications and exploring the latest technologies. Being born in New York and raised in Tokyo exposed me to a diverse range of cultural influences, which in turn has shaped my unique perspective on problem-solving and creativity. Living in two different environments has given me the ability to adapt to new situations and think outside the box when it comes to finding solutions.
+          </p>
+          <p>
+            My interests span various fields, including software development, web development, and video games. I find joy in playing games and often draw inspiration from them for my projects. Whether diving into a complex coding challenge or brainstorming new ideas, I'm eager to learn and grow.
           </p>
         </div>
 
@@ -40,10 +43,12 @@ const About: React.FC = () => {
         </div>
 
         <div className='py-16'>
-          <h3 className='subhead-text'>Work Experience</h3>
+          <h3 className='subhead-text'>Academic Journey</h3>
           <div className='mt-5 flex flex-col gap-3 text-slate-500'>
             <p>
-              I've worked with a range of companies, from small startups to large corporations.
+              My academic journey has provided me with a solid computer science and
+              software development foundation.
+              <br /> Here are some key highlights:
             </p>
           </div>
           <div className='mt-12 flex'>
