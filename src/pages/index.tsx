@@ -28,7 +28,7 @@ const Home: React.FC<IslandProps> = () => {
 
     const [isPlayingMusic, setIsPlayingMusic] = useState<boolean>(false);
     const [islandScale, setIslandScale] = useState<[number, number, number]>([1, 1, 1]);
-    const [islandPosition, setIslandPosition] = useState<[number, number, number]>([0, -6.5, -43]);
+    const [islandPosition, setIslandPosition] = useState<[number, number, number]>([0, -6.5, -55]);
     const [islandRotation] = useState<[number, number, number]>([0.1, 4.7, 0]);
     const [isRotating, setIsRotating] = useState<boolean>(false);
     const [currentStage, setCurrentStage] = useState<number | null>(0);

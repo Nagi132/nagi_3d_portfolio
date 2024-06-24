@@ -19,21 +19,22 @@ const Dragon: React.FC<DragonProps> = ({
     const ref = useRef<THREE.Group>(null);
     const { scene, animations } = useGLTF('assets/3d/dragon.glb') as any; 
     const { actions, names } = useAnimations(animations, ref);
-
-    useEffect(() => {
-        if (actions) {
-            const action = actions[names[0]]; 
-            if (action) {
-                if (isRotating) {
-                    action.paused = false;
-                    action.play();
-                    action.timeScale = 1.2; 
-                } else {
-                    action.paused = true;
-                }
-            }
-        }
-    }, [actions, isRotating, names]);
+ const action = actions[names[0]]; 
+ action?.play();
+    // useEffect(() => {
+    //     if (actions) {
+    //         const action = actions[names[0]]; 
+    //         if (action) {
+    //             if (isRotating) {
+    //                 action.paused = false;
+    //                 action.play();
+    //                 action.timeScale = 1.2; 
+    //             } else {
+    //                 action.paused = false;
+    //             }
+    //         }
+    //     }
+    // }, [actions, isRotating, names]);
 
     return (
         <group ref={ref} position={dragonPosition} scale={dragonScale} rotation={rotation} {...props}>

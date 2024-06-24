@@ -22,10 +22,11 @@ const Projects: React.FC = () => {
 
           <div className='mt-5 flex flex-col gap-3 text-slate-500'>
             <p>
-            In my academic journey, I have committed myself to create a diverse range of interactive applications and games, 
-            with a strong emphasis on delivering exceptional real-time gaming experiences. These projects exemplify my passion 
-            for software development, gaming, and continuous improvement. Below are some of the projects I&apos;ve worked on. Most 
-            are open-source, and I urge you to explore them on my GitHub page. Your input and contributions are highly valued and encouraged!
+              In my academic journey, I have committed myself to create a diverse range of interactive applications and games,
+              with a strong emphasis on delivering exceptional real-time gaming experiences. These projects exemplify my passion
+              for software development, gaming, and continuous improvement.
+              <br />Below are some of the projects I&apos;ve worked on. Most
+              are open-source, and I urge you to explore them on my GitHub page. Your input and contributions are highly valued and encouraged!
             </p>
           </div>
 
@@ -64,8 +65,8 @@ const Projects: React.FC = () => {
                     <Image
                       src='/assets/icons/arrow.svg'
                       alt='arrow'
-                      width={64} 
-                      height={64} 
+                      width={64}
+                      height={64}
                       className='w-4 h-4 object-contain'
                     />
                   </div>
