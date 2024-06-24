@@ -10,6 +10,8 @@ import Bird from '@/models/Bird';
 import HomeInfo from '@/components/HomeInfo';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { BsFillVolumeUpFill, BsFillVolumeMuteFill } from 'react-icons/bs';
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
 import * as THREE from 'three';
 interface IslandProps {
     position?: [number, number, number];
@@ -92,6 +94,8 @@ const Home: React.FC<IslandProps> = () => {
 
     return (
         <>
+        <SpeedInsights />
+        <Analytics/>
             <Head>
                 <title>Nagi&apos;s Portfolio - Home</title>
                 <meta name="description" content="Welcome to Nagi Williams' personal portfolio showcasing my projects and skills." />
