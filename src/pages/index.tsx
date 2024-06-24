@@ -93,7 +93,7 @@ const Home: React.FC<IslandProps> = () => {
     return (
         <>
             <Head>
-                <title>Nagi's Portfolio - Home</title>
+                <title>Nagi&apos;s Portfolio - Home</title>
                 <meta name="description" content="Welcome to Nagi Williams' personal portfolio showcasing my projects and skills." />
             </Head>
             <section className='w-full h-screen relative'>

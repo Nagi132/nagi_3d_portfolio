@@ -249,7 +249,7 @@ export const experiences: Experience[] = [
     {
         title: 'CUNY Tech Prep Fellow',
         company_name: 'CUNY Tech Prep',
-        icon: 'assets/images/ctp.jpg',
+        icon: '/assets/images/ctp.jpg',
         iconBg: '#accbe1',
         date: 'June 2023 - June 2024',
         points: [
@@ -261,7 +261,7 @@ export const experiences: Experience[] = [
     {
         title: 'Bachelor of Arts in Computer Science',
         company_name: 'Hunter College',
-        icon: 'assets/images/hunter.jpg',
+        icon: '/assets/images/hunter.jpg',
         iconBg: '#b19cd9',
         date: 'Graduated May 2024',
         points: [
@@ -272,7 +272,7 @@ export const experiences: Experience[] = [
     {
         title: 'Associate of Science in Computer Science',
         company_name: 'LaGuardia Community College',
-        icon: 'assets/images/lgcc.png',
+        icon: '/assets/images/lgcc.png',
         iconBg: '#ffcccb',
         date: 'Graduated May 2021',
         points: [

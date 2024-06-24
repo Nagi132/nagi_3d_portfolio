@@ -65,7 +65,7 @@ const Contact: React.FC = () => {
     return (
         <>
             <Head>
-                <title>Nagi's Portfolio - Contact</title>
+                <title>Nagi&apos;s Portfolio - Contact</title>
                 <meta name="description" content="Welcome to Nagi Williams' personal portfolio showcasing my projects and skills." />
             </Head>
             <main className="bg-slate-300/20 h-full">

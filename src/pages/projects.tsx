@@ -4,12 +4,13 @@ import Navbar from '@/components/Navbar';
 import { projects } from '@/constants';
 import Link from 'next/link';
 import CTA from '@/components/CTA';
+import Image from 'next/image';
 
 const Projects: React.FC = () => {
   return (
     <>
       <Head>
-        <title>Nagi's Portfolio - Projects</title>
+        <title>Nagi&apos;s Portfolio - Projects</title>
         <meta name="description" content="Welcome to Nagi Williams' personal portfolio showcasing my projects and skills." />
       </Head>
       <main className="bg-slate-300/20 h-full">
@@ -21,11 +22,10 @@ const Projects: React.FC = () => {
 
           <div className='mt-5 flex flex-col gap-3 text-slate-500'>
             <p>
-              In my academic journey, I have dedicated myself to creating a variety of interactive
-              applications and games, with a special emphasis on real-time gaming experiences.
-              These projects showcase my enthusiasm for software development, gaming, and ongoing learning.
-              Here are some of the projects that I've worked on. Most of them are open-source, and I invite you to explore them on
-              my GitHub page. Your input and contributions are greatly valued and welcomed!
+            In my academic journey, I have committed myself to create a diverse range of interactive applications and games, 
+            with a strong emphasis on delivering exceptional real-time gaming experiences. These projects exemplify my passion 
+            for software development, gaming, and continuous improvement. Below are some of the projects I&apos;ve worked on. Most 
+            are open-source, and I urge you to explore them on my GitHub page. Your input and contributions are highly valued and encouraged!
             </p>
           </div>
 
@@ -35,9 +35,11 @@ const Projects: React.FC = () => {
                 <div className='block-container w-12 h-12'>
                   <div className={`btn-back rounded-xl ${project.theme}`} />
                   <div className='btn-front rounded-xl flex justify-center items-center'>
-                    <img
+                    <Image
                       src={project.iconUrl}
                       alt="Project Icon"
+                      width={64}
+                      height={64}
                       className='w-1/2 h-1/2 object-contain'
                     />
                   </div>
@@ -59,9 +61,11 @@ const Projects: React.FC = () => {
                     >
                       Link
                     </Link>
-                    <img
+                    <Image
                       src='/assets/icons/arrow.svg'
                       alt='arrow'
+                      width={64} 
+                      height={64} 
                       className='w-4 h-4 object-contain'
                     />
                   </div>

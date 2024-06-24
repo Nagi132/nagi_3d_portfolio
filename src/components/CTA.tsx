@@ -7,7 +7,7 @@ const CTA: React.FC = () => {
             <p className='cta-text text-center text-xl mb-5'>
                 Have a project in mind?
                 <br className='sm:block hidden' />
-                Let's make it happen!
+                Let&apos;s make it happen!
             </p>
             <Link href="/contact" className='btn text-white bg-gradient-to-r from-cyan-500 to-blue-500 
             hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 
