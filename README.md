@@ -1,6 +1,6 @@
 <div align="center">
   <br />
-      <img src="./public/assets/images/home.jpg" alt="Project Banner">
+      <img src="https://github.com/Nagi132/nagi_3d_portfolio/blob/master/public/assets/images/home.jpg" alt="Project Banner">
   <br />
   <div>
     <img src="https://img.shields.io/badge/-React_JS-black?style=for-the-badge&logoColor=white&logo=react&color=61DAFB" alt="react.js" />
@@ -8,10 +8,10 @@
     <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
   </div>
 
-  <h3 align="center">A 3D Developer Portfolio</h3>
+  <h3 align="center">Nagi's 3D Portfolio</h3>
 
    <div align="center">
-     An interactive 3D portfolio website showcasing my projects and skills.
+     An interactive 3D portfolio website showcasing my projects and skills.</br >
      Built this project step by step with a detailed tutorial on <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery</b></a> YouTube.
     </div>
 </div>
@@ -38,11 +38,13 @@
     ```sh
     npm run dev
 
-## Technologies Used
-- Next.js
+## Tech Stack
+- React.js
 - Three.js
-- React
-- TypeScript
+- React Three Fiber
+- React Three Drei
+- Email JS
+- Vite
 - Tailwind CSS
 
 
