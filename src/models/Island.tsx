@@ -163,7 +163,7 @@ const Island: React.FC<IslandProps> = ({
             document.removeEventListener('keydown', handleKeyDown);
             document.removeEventListener('keyup', handleKeyUp);
         }
-    }, [gl, handlePointerDown, handlePointerMove, handlePointerUp])
+    }, [gl, handlePointerDown, handlePointerMove, handlePointerUp, handleKeyDown, handleKeyUp])
 
     return (
         <animated.group
