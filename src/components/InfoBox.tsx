@@ -13,7 +13,13 @@ const InfoBox: React.FC<InfoBoxProps> = ({ text = "", link = "#", btnText = "Lea
         <p className='font-medium text-xl text-black mb-4'>{text}</p>
         <Link href={link} className='inline-block px-6 py-2 text-sm font-semibold text-indigo-500 bg-white rounded-full shadow-md hover:bg-gray-100 transition-all duration-300'>
             {btnText}
-            <Image src='/assets/icons/arrow.svg' alt='Arrow icon' width={16} height={16} className='inline-block ml-2 object-contain' />
+            <Image src='/assets/icons/arrow.svg'
+                alt='Arrow icon'
+                width={16}
+                height={16}
+                className='inline-block ml-2 object-contain'
+                style={{ width: 'auto', height: 'auto' }}
+            />
         </Link>
     </div>
 );
