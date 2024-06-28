@@ -13,7 +13,6 @@ import { BsFillVolumeUpFill, BsFillVolumeMuteFill } from 'react-icons/bs';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
 import * as THREE from 'three';
-import Script from 'next/script';
 
 interface IslandProps {
     position?: [number, number, number];
@@ -100,7 +99,6 @@ const Home: React.FC<IslandProps> = () => {
                 <title>Nagi&apos;s Portfolio - Home</title>
                 <meta name="description" content="Welcome to Nagi Williams' personal portfolio showcasing my projects and skills." />
                 <link rel="preload" href="/assets/sakura.mp3" as="audio" />
-                {/* <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" /> */}
             </Head>
             <SpeedInsights />
             <Analytics />
