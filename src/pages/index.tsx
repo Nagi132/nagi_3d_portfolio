@@ -14,7 +14,7 @@ const Island = dynamic(() => import('@/models/Island'), { ssr: false });
 const Sky = dynamic(() => import('@/models/Sky'), { ssr: false });
 const Dragon = dynamic(() => import('@/models/Dragon'), { ssr: false });
 const Bird = dynamic(() => import('@/models/Bird'), { ssr: false });
-const HomeInfo = dynamic(() => import('@/components/HomeInfo'), { ssr: false });
+const HomeInfo = dynamic(() => import('@/components/HomeInfo'), { ssr: true });
 
 interface IslandProps {
     position?: [number, number, number];
