@@ -68,6 +68,7 @@ const Projects: React.FC = () => {
                       width={64}
                       height={64}
                       className='w-4 h-4 object-contain'
+                      style={{ width: 'auto', height: 'auto' }}
                     />
                   </div>
                 </div>
