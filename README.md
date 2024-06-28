@@ -1,6 +1,6 @@
 <div align="center">
   <br />
-      <img src="https://github.com/Nagi132/nagi_3d_portfolio/blob/master/public/assets/images/home.jpg" alt="Project Banner">
+      <img src="./public/assets/images/home.jpg" alt="Project Banner">
   <br />
   <div>
     <img src="https://img.shields.io/badge/-React_JS-black?style=for-the-badge&logoColor=white&logo=react&color=61DAFB" alt="react.js" />
