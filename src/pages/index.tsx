@@ -1,18 +1,20 @@
 import Head from 'next/head';
 import React, { Suspense, useEffect, useState, useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
-import Navbar from '@/components/Navbar';
-import Loader from '@/components/Loader';
-import Island from '@/models/Island';
-import Sky from '@/models/Sky';
-import Dragon from '@/models/Dragon';
-import Bird from '@/models/Bird';
-import HomeInfo from '@/components/HomeInfo';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { BsFillVolumeUpFill, BsFillVolumeMuteFill } from 'react-icons/bs';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
 import * as THREE from 'three';
+import dynamic from 'next/dynamic';
+
+const Navbar = dynamic(() => import('@/components/Navbar'), { ssr: true });
+const Loader = dynamic(() => import('@/components/Loader'), { ssr: false });
+const Island = dynamic(() => import('@/models/Island'), { ssr: false });
+const Sky = dynamic(() => import('@/models/Sky'), { ssr: false });
+const Dragon = dynamic(() => import('@/models/Dragon'), { ssr: false });
+const Bird = dynamic(() => import('@/models/Bird'), { ssr: false });
+const HomeInfo = dynamic(() => import('@/components/HomeInfo'), { ssr: false });
 
 interface IslandProps {
     position?: [number, number, number];
@@ -95,13 +97,13 @@ const Home: React.FC<IslandProps> = () => {
 
     return (
         <>
+            <SpeedInsights />
+            <Analytics />
             <Head>
                 <title>Nagi&apos;s Portfolio - Home</title>
                 <meta name="description" content="Welcome to Nagi Williams' personal portfolio showcasing my projects and skills." />
-                <link rel="preload" href="/assets/sakura.mp3" as="audio" />
             </Head>
-            <SpeedInsights />
-            <Analytics />
+
             <section className='w-full h-screen relative'>
                 <Navbar />
 
