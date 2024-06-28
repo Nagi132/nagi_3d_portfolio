@@ -1,7 +1,7 @@
 <div align="center">
-
-      ![Portfolio Preview](./public/assets/images/home.jpg)
-
+  <br />
+      <img src="https://github.com/Nagi132/nagi_3d_portfolio/blob/master/public/assets/images/home.jpg" alt="Project Banner">
+  <br />
   <div>
     <img src="https://img.shields.io/badge/-React_JS-black?style=for-the-badge&logoColor=white&logo=react&color=61DAFB" alt="react.js" />
     <img src="https://img.shields.io/badge/-Three_JS-black?style=for-the-badge&logoColor=white&logo=threedotjs&color=000000" alt="three.js" />
