@@ -8,37 +8,22 @@
     <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
   </div>
 
-  <h3 align="center">Nagi's 3D Portfolio</h3>
+  <h3 align="center">Nagi Williams's 3D Portfolio</h3>
 
    <div align="center">
      An interactive 3D portfolio website showcasing my projects and skills.</br >
-     Built this project step by step with a detailed tutorial on <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery</b></a> YouTube.
+     Built this project with the help of <a href="https://www.youtube.com/@javascriptmastery/videos" target="_blank"><b>JavaScript Mastery</b></a>.
     </div>
 </div>
 
 
 <!-- ![Portfolio Preview](./public/assets/images/home.jpg) -->
 
-## Table of Contents
-- [Installation](#installation)
-- [Technologies Used](#technologies-used)
+## 📋 <a name="table">Table of Contents</a>
+⚙️ [Tech Stack](#tech-stack)
+📦 [Getting Started](#getting-started)
 
-## Installation
-
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/yourusername/nagi-3d-portfolio.git
-   cd nagi-3d-portfolio
-
-2. Install dependencies:
-    ```sh
-    npm install
-
-3. Start the development server:
-    ```sh
-    npm run dev
-
-## Tech Stack
+## ⚙️ <a name="tech-stack">Tech Stack</a>
 - React.js
 - Three.js
 - React Three Fiber
@@ -46,5 +31,40 @@
 - Email JS
 - Vite
 - Tailwind CSS
+
+## 📦 <a name="getting-started">Getting Started</a>
+**Prerequisites**
+
+Make sure you have the following installed on your machine:
+
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/en)
+- [npm](https://www.npmjs.com/) (Node Package Manager)
+
+**Cloning the Repository**
+```sh
+git clone git@github.com:Nagi132/nagi_3d_portfolio.git
+cd nagi-3d-portfolio
+```
+**Install dependencies**
+```sh
+npm install
+```
+**Start the development server**
+```sh
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
+**✉️ Set Up Environment Variables for EmailJS**
+Create a new file named `.env` in the root of your project and add the following content:
+
+```env
+REACT_APP_EMAILJS_USERID=your_emailjs_user_id
+REACT_APP_EMAILJS_TEMPLATEID=your_emailjs_template_id
+REACT_APP_EMAILJS_RECEIVERID=your_emailjs_receiver_id
+```
+Replace the placeholder values with your actual EmailJS credentials. You can obtain these credentials by signing up on the [EmailJS website](https://www.emailjs.com/).
+
+
 
 
