@@ -85,9 +85,9 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to view the 
 Create a new file named `.env` in the root of your project and add the following content:
 
 ```env
-NEXT_PUBLIC_EMAILJS_SERVICEID=your_emailjs_service_id
-NEXT_PUBLIC_EMAILJS_TEMPLATEID=your_emailjs_template_id
-NEXT_PUBLIC_EMAILJS_RECEIVERID=your_emailjs_receiver_id
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_emailjs_service_id
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_emailjs_template_id
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_emailjs_public_key
 ```
 Replace the placeholder values with your actual EmailJS credentials. You can obtain these credentials by signing up on the [EmailJS website](https://www.emailjs.com/).
 
