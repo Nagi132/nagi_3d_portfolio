@@ -3,11 +3,11 @@
   <img src="https://github.com/Nagi132/nagi_3d_portfolio/blob/master/public/assets/images/home.jpg" alt="Project Banner">
   <br />
 <div>
-  <img src="https://img.shields.io/badge/-Next.js-black?style=for-the-badge&logo=next.js&logoColor=white&color=000000" alt="Next.js" />
+  <img src="https://img.shields.io/badge/-Next_._js-black?style=for-the-badge&logo=next.js&logoColor=white&color=000000" alt="Next.js" />
   <img src="https://img.shields.io/badge/-React_JS-black?style=for-the-badge&logo=react&logoColor=white&color=61DAFB" alt="React.js" />
   <img src="https://img.shields.io/badge/-Three_JS-black?style=for-the-badge&logo=threedotjs&logoColor=white&color=000000" alt="Three.js" />
   <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logo=tailwindcss&logoColor=white&color=06B6D4" alt="Tailwind CSS" />
-  <img src="https://img.shields.io/badge/-Node.js-black?style=for-the-badge&logo=node.js&logoColor=white&color=339933" alt="Node.js" />
+  <img src="https://img.shields.io/badge/-Node_js-black?style=for-the-badge&logo=node.js&logoColor=white&color=339933" alt="Node.js" />
 </div>
 
 
