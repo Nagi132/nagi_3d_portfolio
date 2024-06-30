@@ -8,7 +8,7 @@
     <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
   </div>
 
-  <h3 align="center">Nagi Williams's 3D Portfolio</h3>
+  <h3 align="center">Welcome to Nagi's 3D Portfolio</h3>
 
    <div align="center">
      An interactive 3D portfolio website showcasing my projects and skills.</br >
@@ -16,12 +16,10 @@
     </div>
 </div>
 
-
-<!-- ![Portfolio Preview](./public/assets/images/home.jpg) -->
-
 ## 📋 <a name="table">Table of Contents</a>
-⚙️ [Tech Stack](#tech-stack)
-📦 [Getting Started](#getting-started)
+1. ⚙️ [Tech Stack](#tech-stack)
+2. ✨ [Features](#features)
+3. 📦 [Getting Started](#getting-started)
 
 ## ⚙️ <a name="tech-stack">Tech Stack</a>
 - React.js
@@ -32,7 +30,25 @@
 - Vite
 - Tailwind CSS
 
+## ✨ <a name="features">Features</a>
+### Visual and Interactive Elements
+* **Interactive 3D Models**: Utilizes Three.js to render engaging 3D models, providing a captivating visual experience.
+* **Smooth Animations**: Implements fluid transitions to enhance user experience, ensuring a seamless flow.
+* **Real-time Interactivity**: Features interactive elements like a bird and dragon that react to user actions, adding a dynamic touch.
+* **Music Integration**: Includes optional background music for an immersive experience, enhancing the overall ambiance.
+
+### Technical Capabilities
+* **Dynamic Content**: Uses Next.js for server-side rendering, enabling fast and SEO-friendly content loading.
+* **Responsive Design**: Fully adaptive layout ensuring optimal viewing on all devices, from desktops to smartphones.
+* **Stylish UI**: Modern, clean interface designed with Tailwind CSS, offering a visually appealing and user-friendly design.
+* **Contact Integration**: Utilizes EmailJS for a functional contact form, making it easy for visitors to get in touch.
+
+### User Experience and Connectivity
+* **Social Media Integration**: Easy access to professional profiles via prominent icons, encouraging connectivity.
+* **Performance Optimization**: Ensures fast load times and smooth navigation throughout the site, providing an efficient user experience.
+
 ## 📦 <a name="getting-started">Getting Started</a>
+
 **Prerequisites**
 
 Make sure you have the following installed on your machine:
@@ -42,20 +58,27 @@ Make sure you have the following installed on your machine:
 - [npm](https://www.npmjs.com/) (Node Package Manager)
 
 **Cloning the Repository**
+
 ```sh
 git clone git@github.com:Nagi132/nagi_3d_portfolio.git
-cd nagi-3d-portfolio
+cd nagi_3d_portfolio
 ```
+
 **Install dependencies**
+
 ```sh
 npm install
 ```
+
 **Start the development server**
+
 ```sh
 npm run dev
 ```
 Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
+
 **✉️ Set Up Environment Variables for EmailJS**
+
 Create a new file named `.env` in the root of your project and add the following content:
 
 ```env
