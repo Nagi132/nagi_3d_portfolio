@@ -36,18 +36,18 @@
 ## ✨ <a name="features">Features</a>
 ### Visual and Interactive Elements
 * **Interactive 3D Models**: Utilizes Three.js to render engaging 3D models, providing a captivating visual experience.
-* **Smooth Animations**: Implements fluid transitions to enhance user experience, ensuring a seamless flow.
+* **Smooth Animations**: Implements fluid transitions to enhance user experience and ensure a seamless flow.
 * **Real-time Interactivity**: Features interactive elements like a bird and dragon that react to user actions, adding a dynamic touch.
 * **Music Integration**: Includes optional background music for an immersive experience, enhancing the overall ambiance.
 
 ### Technical Capabilities
 * **Dynamic Content**: Uses Next.js for server-side rendering, enabling fast and SEO-friendly content loading.
-* **Responsive Design**: Fully adaptive layout ensuring optimal viewing on all devices, from desktops to smartphones.
+* **Responsive Design**: Fully adaptive layout ensures optimal viewing on all devices, from desktops to smartphones.
 * **Stylish UI**: Modern, clean interface designed with Tailwind CSS, offering a visually appealing and user-friendly design.
 * **Contact Integration**: Utilizes EmailJS for a functional contact form, making it easy for visitors to get in touch.
 
 ### User Experience and Connectivity
-* **Social Media Integration**: Easy access to professional profiles via prominent icons, encouraging connectivity.
+* **Social Media Integration**: Provides easy access to professional profiles via prominent icons, encouraging connectivity.
 * **Performance Optimization**: Ensures fast load times and smooth navigation throughout the site, providing an efficient user experience.
 
 ## 📦 <a name="getting-started">Getting Started</a>
