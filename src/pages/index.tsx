@@ -9,7 +9,7 @@ import * as THREE from 'three';
 import dynamic from 'next/dynamic';
 
 const Navbar = dynamic(() => import('@/components/Navbar'), { ssr: true });
-const Loader = dynamic(() => import('@/components/Loader'), { ssr: false });
+const Loader = dynamic(() => import('@/components/Loader'), { ssr: true });
 const Island = dynamic(() => import('@/models/Island'), { ssr: false });
 const Sky = dynamic(() => import('@/models/Sky'), { ssr: false });
 const Dragon = dynamic(() => import('@/models/Dragon'), { ssr: false });
