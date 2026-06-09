@@ -13,19 +13,18 @@ const renderContent = (currentStage: number | null) => {
         case 1:
             return (
                 <h1 className="sm:text-xl sm:leading-snug text-center bg-whiteOpacity60 py-4 px-8 mx-5 font-medium rounded-2xl shadow-3xl border-4 border-white border-opacity-80 drop-shadow-lg transform transition duration-500 hover:scale-105 text-black">
-                    Hi, I&apos;m <span className='font-semibold'>Nagi</span>!👋
+                    Hi, I&apos;m Nagi, a cloud and systems engineer.
                     <br />
-                    I love playing games and learning new technologies.
+                    My foundation is in computer science.
                     <br />
-                    Born in New York and grew up in Tokyo.
-                    <br />
-                    My area of interests includes software, web developments and video games.
+                    I enjoy learning how cloud, systems, and software come together.
                 </h1>
             );
         case 2:
             return (
                 <InfoBox
-                    text="Explore my journey and discover my background."
+                    title="About"
+                    text="Learn more about my background, experience, and technical journey."
                     link="/about"
                     btnText="Learn More"
                 />
@@ -33,7 +32,8 @@ const renderContent = (currentStage: number | null) => {
         case 3:
             return (
                 <InfoBox
-                    text="Visit my projects and take a look at what I've made so far."
+                    title="Projects"
+                    text={"Take a look at some of the software projects I've built along the way."}
                     link="/projects"
                     btnText="Explore Projects"
                 />
@@ -41,7 +41,8 @@ const renderContent = (currentStage: number | null) => {
         case 4:
             return (
                 <InfoBox
-                    text="I'd love to hear from you! Reach out and let's connect."
+                    title="Contact"
+                    text="Send me a message through the contact form."
                     link="/contact"
                     btnText="Get in Touch"
                 />
