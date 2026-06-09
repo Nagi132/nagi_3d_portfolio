@@ -124,6 +124,11 @@ export const skills: Skill[] = [
         name: "AWS",
         type: "Cloud",
     },
+    {
+        imageUrl: '/assets/icons/azure.svg',
+        name: "Azure",
+        type: "Cloud",
+    },
 
     // General Purpose Programming Languages
     {

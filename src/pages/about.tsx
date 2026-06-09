@@ -4,7 +4,6 @@ import Navbar from '@/components/Navbar';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { skills, experiences } from '@/constants';
-import CTA from '@/components/CTA';
 import Image from 'next/image';
 
 const About: React.FC = () => {
@@ -18,15 +17,18 @@ const About: React.FC = () => {
         <Navbar />
         <section className="max-container">
           <h1 className='head-text'>
-            Hello, I&apos;m <span className='blue-gradient_text font-semibold drop-shadow'>Nagi</span>
+            Hi, I&apos;m <span className='blue-gradient_text font-semibold drop-shadow'>Nagi</span>.
           </h1>
 
           <div className='mt-5 flex flex-col gap-3 text-slate-500'>
             <p>
-              I am a passionate software engineer and full-stack developer with a love for creating innovative web applications and exploring the latest technologies. Being born in New York and raised in Tokyo exposed me to a diverse range of cultural influences, which in turn has shaped my unique perspective on problem-solving and creativity. Living in two different environments has given me the ability to adapt to new situations and think outside the box when it comes to finding solutions.
+              I&apos;m a cloud and systems engineer with a computer science background, focused on Microsoft 365, Azure, endpoint management, network security, and cloud migration.
             </p>
             <p>
-              My interests span various fields, including software development, web development, and video games. I find joy in playing games and often draw inspiration from them for my projects. Whether diving into a complex coding challenge or brainstorming new ideas, I&apos;m eager to learn and grow.
+              My background started in software development, where I built web apps, real-time applications, and game-inspired projects before moving deeper into cloud infrastructure.
+            </p>
+            <p>
+              Born in New York and raised in Tokyo, I bring a cross-cultural perspective to problem-solving and collaboration.
             </p>
           </div>
 
@@ -106,9 +108,6 @@ const About: React.FC = () => {
             </div>
           </div>
 
-          <hr className='border-slate-200' />
-
-          <CTA />
         </section>
       </main>
     </>
