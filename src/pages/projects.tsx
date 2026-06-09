@@ -3,7 +3,6 @@ import React from 'react'
 import Navbar from '@/components/Navbar';
 import { projects } from '@/constants';
 import Link from 'next/link';
-import CTA from '@/components/CTA';
 import Image from 'next/image';
 
 const Projects: React.FC = () => {
@@ -22,11 +21,7 @@ const Projects: React.FC = () => {
 
           <div className='mt-5 flex flex-col gap-3 text-slate-500'>
             <p>
-              In my academic journey, I have committed myself to create a diverse range of interactive applications and games,
-              with a strong emphasis on delivering exceptional real-time gaming experiences. These projects exemplify my passion
-              for software development, gaming, and continuous improvement.
-              <br />Below are some of the projects I&apos;ve worked on. Most
-              are open-source, and I urge you to explore them on my GitHub page. Your input and contributions are highly valued and encouraged!
+              Here are some of the software projects I built during my computer science studies and early development experience. They include web applications, real-time multiplayer games, cloud-hosted apps, and C++ tools.
             </p>
           </div>
 
@@ -77,9 +72,6 @@ const Projects: React.FC = () => {
             ))}
           </div>
 
-          <hr className=' border-slate-200' />
-
-          <CTA />
         </section>
       </main>
     </>

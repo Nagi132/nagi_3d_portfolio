@@ -211,7 +211,7 @@ export const projects: Project[] = [
     {
         iconUrl: 'assets/icons/mandelbrot.svg',
         theme: 'btn-back-red',
-        name: 'Mandelbrot Generato',
+        name: 'Mandelbrot Generator',
         description: 'Mandelbrot set generator using C++, creating detailed fractal patterns and saving images for visualization.',
         link: 'https://github.com/Nagi132/mandelbrot_generator',
     },
