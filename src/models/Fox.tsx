@@ -27,8 +27,7 @@ const Fox: React.FC<FoxProps> = ({ currentAnimation, ...props }) => {
         const currentAction = actions[currentAnimation];
 
         if (currentAction) {
-            currentAction.play();
-            currentAction.timeScale = 1.35;
+            currentAction.reset().setEffectiveTimeScale(1.35).play();
         }
     }, [actions, currentAnimation])
 
