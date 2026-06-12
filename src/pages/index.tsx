@@ -107,7 +107,7 @@ const Home: React.FC<IslandProps> = () => {
             <section className='w-full h-screen relative'>
                 <Navbar />
 
-                <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center'>
+                <div className='absolute left-0 right-0 top-28 z-10 flex items-center justify-center'>
                     {currentStage !== null && <HomeInfo currentStage={currentStage} text="text here" link="https://example.com" btnText="Learn More" />}
                 </div>
                 <Canvas
@@ -148,14 +148,14 @@ const Home: React.FC<IslandProps> = () => {
                     </Suspense>
                 </Canvas>
 
-                <div className='absolute bottom-2 left-2 flex flex-col items-center gap-4'>
-                    <a href="https://www.linkedin.com/in/nagi1/" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-blue-700 transition-colors duration-300">
+                <div className='absolute bottom-4 left-4 flex flex-col items-center gap-3 rounded-md border border-sky-100/70 bg-sky-50/35 p-2 text-[#61706a] backdrop-blur-xl'>
+                    <a href="https://www.linkedin.com/in/nagi1/" target="_blank" rel="noopener noreferrer" className="rounded-md p-1.5 transition-colors duration-200 hover:bg-sky-50/55 hover:text-[#111816]">
                         <FaLinkedin size={30} />
                     </a>
-                    <a href="https://github.com/Nagi132" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-gray-900 transition-colors duration-300">
+                    <a href="https://github.com/Nagi132" target="_blank" rel="noopener noreferrer" className="rounded-md p-1.5 transition-colors duration-200 hover:bg-sky-50/55 hover:text-[#111816]">
                         <FaGithub size={30} />
                     </a>
-                    <button onClick={() => setIsPlayingMusic(!isPlayingMusic)} className="text-gray-700 hover:text-gray-900 transition-colors duration-300">
+                    <button onClick={() => setIsPlayingMusic(!isPlayingMusic)} className="rounded-md p-1.5 transition-colors duration-200 hover:bg-sky-50/55 hover:text-[#111816]">
                         {isPlayingMusic ? <BsFillVolumeUpFill size={30} /> : <BsFillVolumeMuteFill size={30} />}
                     </button>
                 </div>

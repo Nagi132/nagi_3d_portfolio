@@ -1,5 +1,6 @@
 import React from 'react'
 import InfoBox from './InfoBox';
+import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
 
 interface HomeInfoProps {
     currentStage?: number;
@@ -12,13 +13,16 @@ const renderContent = (currentStage: number | null) => {
     switch (currentStage) {
         case 1:
             return (
-                <h1 className="sm:text-xl sm:leading-snug text-center bg-whiteOpacity60 py-4 px-8 mx-5 font-medium rounded-2xl shadow-3xl border-4 border-white border-opacity-80 drop-shadow-lg transform transition duration-500 hover:scale-105 text-black">
-                    Hi, I&apos;m Nagi, a cloud and systems engineer.
-                    <br />
-                    My foundation is in computer science.
-                    <br />
-                    I enjoy learning how cloud, systems, and software come together.
-                </h1>
+                <div className="mx-5 max-w-2xl rounded-md border border-sky-100/70 bg-sky-50/35 px-6 py-5 text-center text-[#111816] shadow-[0_24px_80px_-60px_rgba(17,24,22,0.55)] backdrop-blur-xl transition duration-200 hover:-translate-y-1">
+                    <h1 className="font-poppins text-xl font-semibold sm:text-2xl">
+                        Hi, welcome to my page.
+                    </h1>
+                    <div className="mt-4 inline-flex items-center gap-3 rounded-full border border-sky-100/70 bg-white/35 px-4 py-2 text-sm font-medium text-[#3f4a46]">
+                        <FiArrowLeft className="h-4 w-4 text-sky-500" aria-hidden="true" />
+                        <span>Rotate the island to explore</span>
+                        <FiArrowRight className="h-4 w-4 text-sky-500" aria-hidden="true" />
+                    </div>
+                </div>
             );
         case 2:
             return (
