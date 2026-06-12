@@ -5,6 +5,7 @@ import { useFrame } from '@react-three/fiber';
 
 export const Bird: React.FC = () => {
     const birdRef = useRef<THREE.Group>(null!);
+    const elapsedTime = useRef(0);
     const { scene, animations } = useGLTF('assets/3d/bird.glb') as any;
     const { actions } = useAnimations(animations, birdRef);
 
@@ -12,10 +13,12 @@ export const Bird: React.FC = () => {
         actions['Take 001']?.play();
     }, [actions]);
 
-    useFrame(({ clock, camera }) => {
+    useFrame(({ camera }, delta) => {
+        elapsedTime.current += delta;
+
         // Bird moving in a sin wave at a higher position
         const baseY = 4; 
-        birdRef.current.position.y = Math.sin(clock.elapsedTime) * 0.2 + baseY;
+        birdRef.current.position.y = Math.sin(elapsedTime.current) * 0.2 + baseY;
 
         if (birdRef.current.position.x > camera.position.x + 10) {
             birdRef.current.rotation.y = Math.PI;
