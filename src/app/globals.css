@@ -1,8 +1,50 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap"); */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-gray-200: #d5dae1;
+  --color-black: #000;
+  --color-black-500: #1d2235;
+  --color-blue-500: #2b77e7;
+
+  --font-work-sans: "Work Sans", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+
+  --shadow-card: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-3xl: 0 35px 60px -15px rgb(0 0 0 / 0.3);
+  --shadow-inner-xl: inset 0 2px 4px 0 rgb(0 0 0 / 0.06);
+
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+
+  --animate-bounce: bounce 1s infinite;
+  --animate-fade-in: fade-in 1.5s ease-in-out;
+
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(-25%);
+      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+
+    50% {
+      transform: none;
+      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+}
 
 :root {
   --blue-rgb: 237 245 255;
@@ -23,7 +65,7 @@ body:has(.card[data-color="green"]:hover) {
 
 @layer utilities {
   .max-container {
-    @apply max-w-5xl mx-auto sm:p-16 pb-12 !pt-[126px] px-8 min-h-[calc(100vh-80px)];
+    @apply max-w-5xl mx-auto sm:p-16 pb-12 pt-[126px]! px-8 min-h-[calc(100vh-80px)];
   }
 
   .head-text {
@@ -35,7 +77,7 @@ body:has(.card[data-color="green"]:hover) {
   }
 
   .blue-gradient_text {
-    @apply bg-gradient-to-r from-[#00c6ff] to-[#0072ff] bg-clip-text text-transparent;
+    @apply bg-linear-to-r from-[#00c6ff] to-[#0072ff] bg-clip-text text-transparent;
   }
 
   .input {
@@ -166,7 +208,7 @@ body:has(.card[data-color="green"]:hover) {
 }
 
 /* Neo Brutalism */
-.neo-brutalism-blue {
+@utility neo-brutalism-blue {
   background: #2b77e7;
   position: relative;
   border-radius: 10px;
@@ -175,7 +217,7 @@ body:has(.card[data-color="green"]:hover) {
     0.65vmin 1vmin #0092db, 1vmin 0.65vmin #0092db;
 }
 
-.neo-brutalism-white {
+@utility neo-brutalism-white {
   background: #fff;
   border: #fff;
   box-shadow: 0.6vmin 0.6vmin #fff, 1vmin 1vmin #d2e4ff, 1vmin 1vmin #d2e4ff,

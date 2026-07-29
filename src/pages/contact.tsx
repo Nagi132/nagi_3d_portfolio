@@ -131,7 +131,7 @@ const Contact: React.FC = () => {
                                 onFocus={handleFocus}
                                 onBlur={handleBlur}
                             >
-                                <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-blue-500 opacity-80 transition-opacity duration-300 group-hover:opacity-100"></div>
+                                <div className="absolute inset-0 bg-linear-to-r from-purple-500 to-blue-500 opacity-80 transition-opacity duration-300 group-hover:opacity-100"></div>
                                 <div className="relative flex items-center justify-center space-x-2">
                                     <span>{isLoading ? 'Sending...' : 'Send Message'}</span>
                                     {!isLoading && <FaPaperPlane className="ml-2" />}
