@@ -19,7 +19,7 @@ interface FoxProps {
 
 const Fox: React.FC<FoxProps> = ({ currentAnimation, ...props }) => {
     const group = useRef<THREE.Group>(null!);
-    const { nodes, materials, animations } = useGLTF('assets/3d/fox.glb') as any;
+    const { nodes, materials, animations } = useGLTF('/assets/3d/fox.glb') as any;
     const { actions } = useAnimations(animations, group);
 
     useEffect(() => {
@@ -71,3 +71,5 @@ const Fox: React.FC<FoxProps> = ({ currentAnimation, ...props }) => {
 }
 
 export default Fox;
+
+useGLTF.preload('/assets/3d/fox.glb');
