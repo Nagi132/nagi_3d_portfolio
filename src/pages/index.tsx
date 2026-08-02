@@ -108,7 +108,7 @@ const Home: React.FC<IslandProps> = () => {
                 <Navbar />
 
                 <div className='absolute left-0 right-0 top-28 z-10 flex items-center justify-center'>
-                    {currentStage !== null && <HomeInfo currentStage={currentStage} text="text here" link="https://example.com" btnText="Learn More" />}
+                    {currentStage !== null && <HomeInfo key={currentStage} currentStage={currentStage} text="text here" link="https://example.com" btnText="Learn More" />}
                 </div>
                 <Canvas
                     className={`w-full h-screen bg-transparent ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}

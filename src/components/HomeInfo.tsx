@@ -13,33 +13,40 @@ const renderContent = (currentStage: number | null) => {
     switch (currentStage) {
         case 1:
             return (
-                <div className="mx-5 max-w-2xl rounded-md border border-sky-100/70 bg-sky-50/35 px-6 py-5 text-center text-[#111816] shadow-[0_24px_80px_-60px_rgba(17,24,22,0.55)] backdrop-blur-xl transition duration-200 hover:-translate-y-1">
+                <div className="mx-5 w-fit max-w-[calc(100vw-2.5rem)] border-l-2 border-sky-400 bg-white/45 px-5 py-4 text-left text-[#111816] shadow-[0_18px_50px_-32px_rgba(17,24,22,0.65)] backdrop-blur-md">
+                    <p className="mb-1 font-mono text-[0.625rem] font-semibold tracking-[0.18em] text-[#61706a]">
+                        01 / 04
+                    </p>
                     <h1 className="font-poppins text-xl font-semibold sm:text-2xl">
                         Hi, welcome to my page.
                     </h1>
-                    <div className="mt-4 inline-flex items-center gap-3 rounded-full border border-sky-100/70 bg-white/35 px-4 py-2 text-sm font-medium text-[#3f4a46]">
+                    <p className="mt-2 flex items-center justify-center gap-2 text-sm font-medium text-[#3f4a46]">
                         <FiArrowLeft className="h-4 w-4 text-sky-500" aria-hidden="true" />
-                        <span>Rotate the island to explore</span>
+                        <span>Rotate the island.</span>
                         <FiArrowRight className="h-4 w-4 text-sky-500" aria-hidden="true" />
-                    </div>
+                    </p>
                 </div>
             );
         case 2:
             return (
                 <InfoBox
                     title="About"
-                    text="Learn more about my background, experience, and technical journey."
+                    text="Learn about my journey so far."
                     link="/about"
                     btnText="Learn More"
+                    variant="about"
+                    stage="02 / 04"
                 />
             );
         case 3:
             return (
                 <InfoBox
                     title="Projects"
-                    text={"Take a look at some of the software projects I've built along the way."}
+                    text="Check out the projects I&apos;ve built along the way."
                     link="/projects"
                     btnText="Explore Projects"
+                    variant="projects"
+                    stage="03 / 04"
                 />
             );
         case 4:
@@ -49,6 +56,8 @@ const renderContent = (currentStage: number | null) => {
                     text="Send me a message through the contact form."
                     link="/contact"
                     btnText="Get in Touch"
+                    variant="contact"
+                    stage="04 / 04"
                 />
             );
         default:
@@ -57,7 +66,11 @@ const renderContent = (currentStage: number | null) => {
 };
 
 const HomeInfo: React.FC<HomeInfoProps> = ({ currentStage }) => {
-    return <div>{renderContent(currentStage ?? null)}</div>;
+    return (
+        <div className="home-info-enter">
+            {renderContent(currentStage ?? null)}
+        </div>
+    );
 };
 
 export default HomeInfo
