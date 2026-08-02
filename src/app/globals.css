@@ -89,6 +89,27 @@ body {
   }
 }
 
+.journey-card-reveal {
+  opacity: 0;
+  filter: blur(2px);
+  transform: translateX(-64px);
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, filter, transform;
+}
+
+.journey-card-reveal:nth-child(even) {
+  transform: translateX(64px);
+}
+
+.journey-card-reveal.journey-card-visible {
+  opacity: 1;
+  filter: none;
+  transform: translateX(0);
+}
+
 body:has(.card[data-color="blue"]:hover) {
   background-color: rgb(var(--blue-rgb) / 25%);
 }
