@@ -16,6 +16,9 @@ interface Project {
     name: string;
     description: string;
     link: string;
+    linkLabel: 'View code' | 'Live demo';
+    tags: string[];
+    category: 'Game' | 'Cloud app' | 'Hackathon' | 'C++' | 'Desktop tool';
 }
 
 interface Service {
@@ -167,60 +170,84 @@ export const skills: Skill[] = [
 
 export const projects: Project[] = [
     {
-        iconUrl: 'assets/icons/sketch.svg',
+        iconUrl: '/assets/icons/sketch.svg',
         theme: 'btn-back-orange',
         name: 'Sketch and Guess',
-        description: 'A real-time drawing and guessing game. Built with React, Node.js, and MongoDB. Real-time communication via Socket.IO.',
+        description: 'A real-time drawing and guessing game with live rooms and Socket.IO-powered gameplay.',
         link: 'https://github.com/cmartinez131/sketch',
+        linkLabel: 'View code',
+        tags: ['React', 'Node.js', 'MongoDB', 'Socket.IO'],
+        category: 'Game',
     },
     {
-        iconUrl: 'assets/icons/pingpong.svg',
+        iconUrl: '/assets/icons/pingpong.svg',
         theme: 'btn-back-blue',
         name: 'Ping Pong Online',
-        description: 'Multiplayer ping pong game with lobby creation and CPU play. Built with React, Node.js, and Socket.IO, deployed on Heroku.',
+        description: 'An online ping-pong game with multiplayer lobbies and a CPU opponent.',
         link: 'https://github.com/Nagi132/ping-pong-online',
+        linkLabel: 'View code',
+        tags: ['React', 'Node.js', 'Socket.IO'],
+        category: 'Game',
     },
     {
-        iconUrl: 'assets/icons/boardgame.svg',
+        iconUrl: '/assets/icons/boardgame.svg',
         theme: 'btn-back-black',
         name: 'Gobble Four',
-        description: 'An engaging multiplayer board game inspired by Gobblet Gobblers. Built with React.js and Firebase for real-time gameplay.',
+        description: 'A real-time strategy board game inspired by Gobblet Gobblers, with Firebase-powered gameplay.',
         link: 'https://gobblet-gobblers-3bb43.web.app/',
+        linkLabel: 'Live demo',
+        tags: ['React', 'Firebase', 'Multiplayer'],
+        category: 'Game',
     },
     {
-        iconUrl: 'assets/icons/question.svg',
+        iconUrl: '/assets/icons/question.svg',
         theme: 'btn-back-green',
         name: 'QuizApp',
-        description: 'Quiz management platform using React, Node.js, and AWS. Features user authentication, Dockerized deployment, and AWS integration.',
+        description: 'A quiz platform with authentication, quiz creation, and a Dockerized AWS deployment.',
         link: 'https://github.com/Nagi132/quiz-app',
+        linkLabel: 'View code',
+        tags: ['React', 'Node.js', 'AWS', 'Docker'],
+        category: 'Cloud app',
     },
     {
-        iconUrl: 'assets/icons/mentor.svg',
+        iconUrl: '/assets/icons/mentor.svg',
         theme: 'btn-back-pink',
         name: 'PrePair',
-        description: 'Mentoring platform for STEM students. Developed with HTML, CSS, Bootstrap, Figma, MongoDB, and Node.js/Express. Won 1st place in Funathon 2022.',
-        link: 'https://github.com/gislainm/funathon-2022',
+        description: 'A mentoring platform connecting STEM students and mentors. Won first place at the 2022 YPSTEM Funathon.',
+        link: 'https://github.com/Nagi132/funathon-2022',
+        linkLabel: 'View code',
+        tags: ['Node.js', 'Express', 'MongoDB', 'Figma'],
+        category: 'Hackathon',
     },
     {
-        iconUrl: 'assets/icons/stars.svg',
+        iconUrl: '/assets/icons/stars.svg',
         theme: 'btn-back-yellow',
-        name: 'DirectMedia Layer Particle System',
-        description: 'C++ particle system using SDL, featuring particle movement, collision detection, and generation.',
-        link: 'https://github.com/ritika789/dadjokes-extension',
+        name: 'SDL Particle System',
+        description: 'A C++ particle simulation built with SDL, featuring movement, collision detection, and particle generation.',
+        link: 'https://github.com/Nagi132/SDL',
+        linkLabel: 'View code',
+        tags: ['C++', 'SDL', 'Simulation'],
+        category: 'C++',
     },
     {
-        iconUrl: 'assets/icons/mandelbrot.svg',
+        iconUrl: '/assets/icons/mandelbrot.svg',
         theme: 'btn-back-red',
         name: 'Mandelbrot Generator',
-        description: 'Mandelbrot set generator using C++, creating detailed fractal patterns and saving images for visualization.',
+        description: 'A C++ fractal generator that renders Mandelbrot sets and exports detailed visualizations.',
         link: 'https://github.com/Nagi132/mandelbrot_generator',
+        linkLabel: 'View code',
+        tags: ['C++', 'Algorithms', 'Visualization'],
+        category: 'C++',
     },
     {
-        iconUrl: 'assets/icons/rgb.svg',
+        iconUrl: '/assets/icons/rgb.svg',
         theme: 'btn-back-blue',
         name: 'RGB Color Picker',
-        description: 'C++ RGB color picker tool with GUI, converting selected RGB values to HTML and Hexadecimal formats.',
+        description: 'A desktop C++ color tool for exploring RGB values and converting them to HTML hexadecimal colors.',
         link: 'https://github.com/Nagi132/rgbpicker',
+        linkLabel: 'View code',
+        tags: ['C++', 'GUI', 'Color tools'],
+        category: 'Desktop tool',
     }
 ];
 export const service: Service[] = [

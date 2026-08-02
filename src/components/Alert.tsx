@@ -1,34 +1,56 @@
 import React from 'react';
+import { FiAlertCircle, FiCheckCircle, FiX } from 'react-icons/fi';
 
 interface AlertProps {
     type: 'danger' | 'success';
     text: string;
     show: boolean;
+    onClose?: () => void;
 }
 
-const Alert: React.FC<AlertProps> = ({ type, text, show }) => {
+const Alert: React.FC<AlertProps> = ({ type, text, show, onClose }) => {
+    const isSuccess = type === 'success';
+    const Icon = isSuccess ? FiCheckCircle : FiAlertCircle;
+
     return (
-        <div className={`fixed top-0 left-0 right-0 flex justify-center items-center transition-transform transform ${show ? 'translate-y-10' : '-translate-y-full'} ease-in-out duration-500`}>
-            <div
-                className={`relative p-4 ${type === "danger" ? "bg-red-800" : "bg-blue-800"
-                    } items-center text-indigo-100 leading-none rounded-lg flex shadow-xl border-2 border-solid border-white`}
-                role='alert'
-            >
-                <div className="absolute top-0 left-0 w-full h-full bg-linear-to-r from-purple-400 via-pink-500 to-red-500 opacity-50 rounded-lg animate-pulse"></div>
-                <p className={`relative z-10 flex rounded-full ${type === "danger" ? "bg-red-500" : "bg-blue-500"
-                    } uppercase px-2 py-1 text-xs font-semibold mr-3 shadow-inner`}
+        <div
+            className={[
+                'fixed inset-x-0 top-24 z-[70] flex justify-center px-4 transition duration-300',
+                show ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0',
+            ].join(' ')}
+            role="alert"
+            aria-live="polite"
+        >
+            <div className="flex w-full max-w-md items-start gap-3 rounded-2xl border border-white/80 bg-white/90 p-4 text-[#111816] shadow-[0_20px_60px_rgba(15,23,42,0.16)] backdrop-blur-xl">
+                <span
+                    className={[
+                        'mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full',
+                        isSuccess
+                            ? 'bg-emerald-100 text-emerald-700'
+                            : 'bg-rose-100 text-rose-700',
+                    ].join(' ')}
                 >
-                    {type === "danger" ? "Failed" : "Success"}
-                </p>
-                <p className='relative z-10 mr-2 text-left'>{text}</p>
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                    <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
+                    <Icon className="h-4 w-4" aria-hidden="true" />
+                </span>
+
+                <div className="min-w-0 flex-1">
+                    <p className="font-poppins text-sm font-semibold">
+                        {isSuccess ? 'Message sent' : 'Message not sent'}
+                    </p>
+                    <p className="mt-1 text-sm leading-5 text-slate-600">{text}</p>
                 </div>
+
+                <button
+                    type="button"
+                    onClick={onClose}
+                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-100 hover:text-[#111816]"
+                    aria-label="Dismiss notification"
+                >
+                    <FiX className="h-4 w-4" aria-hidden="true" />
+                </button>
             </div>
         </div>
     );
-}
+};
 
 export default Alert;

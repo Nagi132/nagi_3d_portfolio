@@ -30,7 +30,7 @@ const journeySummaries: Record<string, string> = {
   'CUNY Tech Prep':
     'Built and deployed a real-time full-stack application while working in an agile team and learning testing and CI/CD practices.',
   'Hunter College':
-    'Studied algorithms, software engineering, and web development, and won first place at the YPstem Hackathon for PrePair.',
+    'Studied algorithms, software engineering, and web development, and won first place at the 2022 YPSTEM Funathon for PrePair.',
   'LaGuardia Community College':
     'Built a foundation in object-oriented programming, data structures, algorithms, and software development.',
 };
