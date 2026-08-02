@@ -1,14 +1,64 @@
 version: 2
 updates:
-  # GitHub Actions workflow updates
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/New_York"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
 
-  # npm / yarn / pnpm updates
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "weekly"
-    open-pull-requests-limit: 5
+      day: "monday"
+      time: "09:00"
+      timezone: "America/New_York"
+    open-pull-requests-limit: 3
+
+    # Let routine releases settle before opening a version-update PR.
+    # Security updates are not delayed by cooldown settings.
+    cooldown:
+      default-days: 7
+
+    # Major upgrades are reviewed and tested manually. This restriction only
+    # affects routine version updates; security updates can still cross majors.
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-major"
+
+    # Keep routine updates small in number while separating production and
+    # development dependencies so failures are easier to isolate.
+    groups:
+      production-dependencies:
+        applies-to: "version-updates"
+        dependency-type: "production"
+        update-types:
+          - "minor"
+          - "patch"
+        patterns:
+          - "*"
+      development-dependencies:
+        applies-to: "version-updates"
+        dependency-type: "development"
+        update-types:
+          - "minor"
+          - "patch"
+        patterns:
+          - "*"
+      production-security-updates:
+        applies-to: "security-updates"
+        dependency-type: "production"
+        patterns:
+          - "*"
+      development-security-updates:
+        applies-to: "security-updates"
+        dependency-type: "development"
+        patterns:
+          - "*"
