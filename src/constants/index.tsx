@@ -21,6 +21,13 @@ interface Project {
     category: 'Game' | 'Cloud app' | 'Hackathon' | 'C++' | 'Desktop tool';
 }
 
+interface FreelanceProject {
+    name: string;
+    description: string;
+    link: string;
+    category: 'E-commerce' | 'Business site' | 'Portfolio' | 'Web app';
+}
+
 interface Service {
     theme: string;
     name: string;
@@ -250,6 +257,34 @@ export const projects: Project[] = [
         category: 'Desktop tool',
     }
 ];
+
+export const freelanceProjects: FreelanceProject[] = [
+    {
+        name: 'Craft Brewery Website',
+        description: 'Brand, events, store discovery, and online shopping for a Japanese craft brewery.',
+        link: 'https://saltfieldsbrewing.com',
+        category: 'E-commerce',
+    },
+    {
+        name: 'Driving School Website',
+        description: 'Services, inquiries, and clear contact paths for a local driving school.',
+        link: 'https://www.hawaiidrivingschool.xyz/',
+        category: 'Business site',
+    },
+    {
+        name: 'Photography Portfolio',
+        description: 'An immersive, image-first portfolio for full-screen photography.',
+        link: 'https://www.koya-watanabe.com/',
+        category: 'Portfolio',
+    },
+    {
+        name: 'Cleaning Management Portal',
+        description: 'Account and staff management for cleaning operations.',
+        link: 'https://kanriclean.com/',
+        category: 'Web app',
+    },
+];
+
 export const service: Service[] = [
     {
 

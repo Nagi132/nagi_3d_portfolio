@@ -20,7 +20,7 @@ const skillGroups = [
   },
   {
     title: 'Data & Tools',
-    description: 'The rest of the toolkit',
+    description: 'Data, design, and tooling',
     accent: 'bg-violet-400',
     skills: ['PostgreSQL', 'MongoDB', 'Git', 'Figma', 'C++', 'Socket.io'],
   },
@@ -35,6 +35,18 @@ const journeySummaries: Record<string, string> = {
     'Built a foundation in object-oriented programming, data structures, algorithms, and software development.',
 };
 
+const ArrowRight = () => (
+  <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className="h-4 w-4">
+    <path
+      d="M4 10h12m0 0-4.5-4.5M16 10l-4.5 4.5"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
 const About: React.FC = () => {
   useEffect(() => {
     const journeyItems = document.querySelectorAll<HTMLElement>('[data-journey-item]');
@@ -48,8 +60,8 @@ const About: React.FC = () => {
         });
       },
       {
-        threshold: 0.05,
-        rootMargin: '0px 0px -40% 0px',
+        threshold: 0.08,
+        rootMargin: '0px 0px -15% 0px',
       },
     );
 
@@ -68,160 +80,224 @@ const About: React.FC = () => {
         />
       </Head>
 
-      <main className="min-h-screen bg-slate-300/20">
+      <main className="relative min-h-screen overflow-x-hidden bg-slate-300/20">
         <Navbar />
 
-        <section className="max-container">
-          <div className="max-w-3xl">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-sky-600">
-              About me
-            </p>
-            <h1 className="head-text">
-              Hi, I&apos;m{' '}
-              <span className="blue-gradient_text font-semibold drop-shadow">Nagi</span>.
-            </h1>
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 h-[36rem] opacity-30 [mask-image:linear-gradient(to_bottom,black,transparent)]"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(148, 163, 184, 0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 163, 184, 0.18) 1px, transparent 1px)',
+            backgroundSize: '40px 40px',
+          }}
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute left-[-8rem] top-32 h-80 w-80 rounded-full bg-violet-200/20 blur-3xl"
+        />
 
-            <div className="mt-6 flex flex-col gap-4 text-base leading-7 text-slate-700 sm:text-lg sm:leading-8">
-              <p>
-                I&apos;m a cloud and systems engineer with a computer science background,
-                focused on Microsoft 365, Azure, endpoint management, network security,
-                and cloud migration.
+        <section className="max-container relative z-10">
+          <header>
+            <div className="max-w-4xl">
+              <p className="flex items-center gap-3 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-sky-700">
+                <span aria-hidden="true" className="h-px w-8 bg-sky-500" />
+                About / Profile
               </p>
-              <p>
-                I started in software development—building web, real-time, and
-                game-inspired projects—and still bring that builder&apos;s mindset to
-                infrastructure work. Born in New York and raised in Tokyo, I also bring a
-                cross-cultural perspective to collaboration.
+
+              <h1 className="head-text mt-5">
+                Hi, I&apos;m{' '}
+                <span className="blue-gradient_text font-semibold drop-shadow">Nagi</span>.
+              </h1>
+
+              <div className="mt-5 flex flex-col gap-4 text-base leading-7 text-slate-700 sm:text-lg sm:leading-8">
+                <p>
+                  I&apos;m a cloud and systems engineer with a computer science background,
+                  focused on Microsoft 365, Azure, endpoint management, and secure cloud
+                  migrations.
+                </p>
+                <p>
+                  <span className="block">
+                    I began in software development, building web, real-time, and
+                    game-inspired projects.
+                  </span>
+                  <span className="block">
+                    That background still shapes how I approach infrastructure work.
+                  </span>
+                  <span className="block">
+                    Born in New York and raised in Tokyo, I also bring a cross-cultural
+                    perspective to collaboration.
+                  </span>
+                </p>
+              </div>
+            </div>
+
+            <dl className="mt-9 grid max-w-4xl border-y border-slate-300/80 sm:grid-cols-2 sm:divide-x sm:divide-slate-300/80">
+              <div className="border-b border-slate-300/80 py-4 sm:border-b-0 sm:pr-6">
+                <dt className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-slate-500">
+                  Focus
+                </dt>
+                <dd className="mt-1.5 font-poppins text-sm font-semibold text-slate-900 sm:text-base">
+                  Cloud &amp; systems
+                </dd>
+              </div>
+              <div className="py-4 sm:pl-6">
+                <dt className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-slate-500">
+                  Foundation
+                </dt>
+                <dd className="mt-1.5 font-poppins text-sm font-semibold text-slate-900 sm:text-base">
+                  Computer science
+                </dd>
+              </div>
+            </dl>
+          </header>
+
+          <section className="py-14 sm:py-16" aria-labelledby="skills-heading">
+            <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end sm:gap-8">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                  Toolkit / 02
+                </p>
+                <h2 id="skills-heading" className="mt-2 font-poppins text-2xl font-semibold text-slate-950 sm:text-3xl">
+                  Tools I work with
+                </h2>
+              </div>
+              <p className="max-w-sm text-sm leading-6 text-slate-600 sm:text-right">
+                Across infrastructure and software development.
               </p>
             </div>
-          </div>
 
-          <section className="py-14 sm:py-20" aria-labelledby="skills-heading">
-            <div className="max-w-2xl">
-              <h2 id="skills-heading" className="subhead-text">
-                My Skills
-              </h2>
-              <p className="mt-3 leading-7 text-slate-600">
-                A focused look at the technologies I use across cloud infrastructure and
-                software development.
-              </p>
-            </div>
-
-            <div className="mt-8 grid gap-5 lg:grid-cols-3">
+            <div className="mt-6 grid gap-px overflow-hidden rounded-2xl border border-slate-300/80 bg-slate-300/80 lg:grid-cols-3">
               {skillGroups.map((group) => (
-                <article
-                  key={group.title}
-                  className="rounded-3xl border border-white/80 bg-white/55 p-5 shadow-[0_18px_50px_rgba(15,23,42,0.06)] backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1"
-                >
+                <article key={group.title} className="bg-[#f5f7fa] p-5 sm:p-6">
                   <div className="flex items-start gap-3">
-                    <span className={`mt-1 h-9 w-1 shrink-0 rounded-full ${group.accent}`} />
+                    <span aria-hidden="true" className={`mt-2 h-2 w-2 shrink-0 rounded-full ${group.accent}`} />
                     <div>
-                      <h3 className="font-poppins text-lg font-semibold text-slate-900">
+                      <h3 className="font-poppins text-base font-semibold text-slate-950 sm:text-lg">
                         {group.title}
                       </h3>
                       <p className="mt-1 text-sm text-slate-500">{group.description}</p>
                     </div>
                   </div>
 
-                  <div className="mt-5 grid grid-cols-2 gap-2.5">
-                    {group.skills.map((skillName) => {
+                  <ul className="mt-5 grid grid-cols-2 border-t border-slate-200/90">
+                    {group.skills.map((skillName, index) => {
                       const skill = skills.find(({ name }) => name === skillName);
 
                       if (!skill) return null;
 
                       return (
-                        <div
+                        <li
                           key={skill.name}
-                          className="flex min-h-14 items-center gap-2 rounded-2xl border border-slate-200/70 bg-white/80 px-2.5 py-2"
+                          className={[
+                            'flex min-w-0 items-center gap-2 border-b border-slate-200/90 py-3',
+                            index % 2 === 0 ? 'pr-3' : 'border-l pl-3',
+                          ].join(' ')}
                         >
                           <Image
                             src={skill.imageUrl}
                             alt=""
-                            width={30}
-                            height={30}
-                            className="h-6 w-6 shrink-0 object-contain"
+                            width={24}
+                            height={24}
+                            className="h-5 w-5 shrink-0 object-contain"
                           />
-                          <span className="min-w-0 whitespace-nowrap text-xs font-medium leading-tight text-slate-700">
+                          <span className="min-w-0 text-xs font-medium leading-tight text-slate-700">
                             {skill.name}
                           </span>
-                        </div>
+                        </li>
                       );
                     })}
-                  </div>
+                  </ul>
                 </article>
               ))}
             </div>
           </section>
 
-          <section className="pb-6 sm:pb-10" aria-labelledby="journey-heading">
-            <div className="max-w-2xl">
-              <h2 id="journey-heading" className="subhead-text">
-                Experience &amp; Education
-              </h2>
-              <p className="mt-3 leading-7 text-slate-600">
-                The experiences that shaped how I build, learn, and solve problems.
+          <section aria-labelledby="journey-heading">
+            <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end sm:gap-8">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                  Path / 03
+                </p>
+                <h2 id="journey-heading" className="mt-2 font-poppins text-2xl font-semibold text-slate-950 sm:text-3xl">
+                  Experience &amp; education
+                </h2>
+              </div>
+              <p className="max-w-sm text-sm leading-6 text-slate-600 sm:text-right">
+                The work and study behind the projects.
               </p>
             </div>
 
-            <ol className="relative mt-9 max-w-3xl space-y-5 before:absolute before:bottom-8 before:left-6 before:top-8 before:w-px before:bg-slate-300 sm:before:left-7">
-              {experiences.map((experience) => (
+            <ol className="mt-6 border-y border-slate-300/80">
+              {experiences.map((experience, index) => (
                 <li
                   key={experience.company_name}
                   data-journey-item
-                  className="journey-card-reveal relative pl-16 sm:pl-20"
+                  className="journey-card-reveal grid grid-cols-[2.25rem_minmax(0,1fr)] gap-x-3 border-b border-slate-300/70 px-1 py-6 last:border-b-0 sm:grid-cols-[2.75rem_minmax(0,1fr)] sm:gap-x-5 sm:px-3 md:grid-cols-[3rem_3.5rem_minmax(0,1fr)_auto] md:items-start md:gap-x-6 md:px-4"
                 >
+                  <span className="row-span-2 pt-1 font-mono text-xs tabular-nums text-slate-400 md:row-span-1">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+
                   <div
-                    className="absolute left-0 top-5 z-1 flex h-12 w-12 items-center justify-center rounded-2xl border-4 border-slate-100 shadow-sm sm:h-14 sm:w-14"
+                    className="hidden h-12 w-12 items-center justify-center rounded-xl border border-white/90 shadow-sm md:flex"
                     style={{ backgroundColor: experience.iconBg }}
                   >
                     <Image
                       src={experience.icon}
                       alt=""
-                      width={36}
-                      height={36}
+                      width={32}
+                      height={32}
                       className="h-8 w-8 rounded-lg object-contain"
                     />
                   </div>
 
-                  <article className="rounded-3xl border border-white/80 bg-white/65 p-5 shadow-[0_18px_50px_rgba(15,23,42,0.06)] backdrop-blur-sm sm:p-6">
-                    <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-5">
+                  <div className="min-w-0 md:col-start-3">
+                    <div className="flex items-start gap-3 md:block">
+                      <div
+                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/90 shadow-sm md:hidden"
+                        style={{ backgroundColor: experience.iconBg }}
+                      >
+                        <Image
+                          src={experience.icon}
+                          alt=""
+                          width={28}
+                          height={28}
+                          className="h-7 w-7 rounded-lg object-contain"
+                        />
+                      </div>
                       <div>
-                        <h3 className="font-poppins text-lg font-semibold leading-snug text-slate-900 sm:text-xl">
+                        <h3 className="font-poppins text-base font-semibold leading-snug text-slate-950 sm:text-lg">
                           {experience.title}
                         </h3>
-                        <p className="mt-1 font-medium text-slate-600">
+                        <p className="mt-1 text-sm font-medium text-slate-600">
                           {experience.company_name}
                         </p>
                       </div>
-                      <time className="shrink-0 text-sm font-semibold text-sky-700">
-                        {experience.date}
-                      </time>
                     </div>
-                    <p className="mt-4 leading-7 text-slate-600">
+                    <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600">
                       {journeySummaries[experience.company_name]}
                     </p>
-                  </article>
+                  </div>
+
+                  <time className="col-start-2 mt-3 shrink-0 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-sky-700 md:col-start-4 md:mt-1">
+                    {experience.date}
+                  </time>
                 </li>
               ))}
             </ol>
           </section>
 
-          <section className="mt-12 rounded-3xl bg-[#111816] px-6 py-9 text-white shadow-[0_24px_70px_rgba(15,23,42,0.18)] sm:flex sm:items-center sm:justify-between sm:gap-8 sm:px-9">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">
-                See the work
-              </p>
-              <h2 className="mt-2 font-poppins text-2xl font-semibold sm:text-3xl">
-                Check out the projects I&apos;ve built along the way.
-              </h2>
-            </div>
+          <div className="mt-12 flex flex-col justify-between gap-4 border-t border-slate-300/80 pt-6 sm:flex-row sm:items-center">
+            <p className="text-sm text-slate-600">Want to see what I&apos;ve built?</p>
             <Link
               href="/projects"
-              className="mt-6 inline-flex shrink-0 items-center justify-center rounded-full bg-emerald-300 px-6 py-3 font-semibold text-[#111816] transition duration-200 hover:-translate-y-0.5 hover:bg-emerald-200 sm:mt-0"
+              className="inline-flex w-fit items-center gap-2 text-sm font-semibold text-sky-700 transition-colors hover:text-sky-500 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-500"
             >
-              Explore projects <span aria-hidden="true" className="ml-2">→</span>
+              View the project index
+              <ArrowRight />
             </Link>
-          </section>
+          </div>
         </section>
       </main>
     </>

@@ -110,6 +110,16 @@ body {
   transform: translateX(0);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .journey-card-reveal,
+  .journey-card-reveal:nth-child(even) {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+  }
+}
+
 body:has(.card[data-color="blue"]:hover) {
   background-color: rgb(var(--blue-rgb) / 25%);
 }
