@@ -148,15 +148,46 @@ const Home: React.FC<IslandProps> = () => {
                     </Suspense>
                 </Canvas>
 
-                <div className='absolute bottom-4 left-4 flex flex-col items-center gap-3 rounded-md border border-sky-100/70 bg-sky-50/35 p-2 text-[#61706a] backdrop-blur-xl'>
-                    <a href="https://www.linkedin.com/in/nagi1/" target="_blank" rel="noopener noreferrer" className="rounded-md p-1.5 transition-colors duration-200 hover:bg-sky-50/55 hover:text-[#111816]">
-                        <FaLinkedin size={30} />
-                    </a>
-                    <a href="https://github.com/Nagi132" target="_blank" rel="noopener noreferrer" className="rounded-md p-1.5 transition-colors duration-200 hover:bg-sky-50/55 hover:text-[#111816]">
-                        <FaGithub size={30} />
-                    </a>
-                    <button onClick={() => setIsPlayingMusic(!isPlayingMusic)} className="rounded-md p-1.5 transition-colors duration-200 hover:bg-sky-50/55 hover:text-[#111816]">
-                        {isPlayingMusic ? <BsFillVolumeUpFill size={30} /> : <BsFillVolumeMuteFill size={30} />}
+                <div className="absolute bottom-4 left-4 flex items-center gap-2 text-[#61706a] sm:bottom-6 sm:left-6 sm:flex-col">
+                    <nav
+                        aria-label="Social links"
+                        className="flex items-center rounded-md border border-white/75 bg-white/60 p-1 shadow-[0_16px_42px_-28px_rgba(17,24,22,0.7)] backdrop-blur-xl sm:flex-col"
+                    >
+                        <a
+                            href="https://www.linkedin.com/in/nagi1/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="LinkedIn"
+                            title="LinkedIn"
+                            className="flex h-10 w-10 items-center justify-center rounded transition duration-200 hover:-translate-y-0.5 hover:bg-sky-50/60 hover:text-[#111816] sm:hover:translate-x-0.5 sm:hover:translate-y-0"
+                        >
+                            <FaLinkedin className="h-5 w-5" />
+                        </a>
+                        <a
+                            href="https://github.com/Nagi132"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="GitHub"
+                            title="GitHub"
+                            className="flex h-10 w-10 items-center justify-center rounded transition duration-200 hover:-translate-y-0.5 hover:bg-sky-50/60 hover:text-[#111816] sm:hover:translate-x-0.5 sm:hover:translate-y-0"
+                        >
+                            <FaGithub className="h-5 w-5" />
+                        </a>
+                    </nav>
+
+                    <button
+                        type="button"
+                        onClick={() => setIsPlayingMusic(!isPlayingMusic)}
+                        aria-label={isPlayingMusic ? 'Mute background music' : 'Play background music'}
+                        aria-pressed={isPlayingMusic}
+                        title={isPlayingMusic ? 'Mute background music' : 'Play background music'}
+                        className="flex h-11 w-11 items-center justify-center rounded-md border border-white/75 bg-white/60 shadow-[0_16px_42px_-28px_rgba(17,24,22,0.7)] backdrop-blur-xl transition duration-200 hover:-translate-y-0.5 hover:bg-white/80 hover:text-[#111816] sm:hover:translate-x-0.5 sm:hover:translate-y-0"
+                    >
+                        {isPlayingMusic ? (
+                            <BsFillVolumeUpFill className="h-5 w-5" />
+                        ) : (
+                            <BsFillVolumeMuteFill className="h-5 w-5" />
+                        )}
                     </button>
                 </div>
 
